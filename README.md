@@ -47,63 +47,71 @@ python-basics/
     └── quiz.js               │ Quiz engine and state management
 ```
 
-## ✏️ How to Edit
+## Getting Started
 
-### Add a new section
-1. Create `sections/mytopic.html` — just the inner content (cards, grids, code blocks).  
-   No `<html>`, `<head>`, or wrapper `<div class="section">` needed.
-2. In `index.html`, add a `<button class="tab-btn">` in the tabs bar.
-3. In `index.html`, add the wrapper div:
+### Running the Application
+
+No server setup is required. Simply open `index.html` in any modern web browser to start exploring the content.
+
+For a development environment with live reloading:
+- **VS Code**: Install the Live Server extension and right-click `index.html` → "Open with Live Server"
+- **Command Line**: Use `npx serve .` in the project directory
+
+### Usage
+
+1. Open `index.html` in your browser.
+2. Use the tab buttons to navigate between different topics.
+3. Click the copy button on code blocks to copy examples.
+4. Take the interactive quiz to test your understanding.
+
+## Contributing
+
+### Adding New Content
+
+1. Create a new HTML file in the `sections/` directory with the topic content (cards, grids, code blocks).
+2. Add a corresponding tab button in `index.html`.
+3. Include the new section wrapper in `index.html`:
    ```html
-   <div class="section" id="section-mytopic">
-     <!-- paste or @include sections/mytopic.html content -->
+   <div class="section" id="section-newtopic">
+     <!-- Include the content from sections/newtopic.html -->
    </div>
    ```
 
-### Edit styles
-- Changing a **color or spacing token**? → `styles/base.css`
-- Tweaking the **header or tabs**? → `styles/layout.css`
-- Changing **card hover/glow**? → `styles/cards.css`
-- Changing **code block appearance**? → `styles/code.css`
-- Tweaking the **quiz UI**? → `styles/quiz.css`
+### Modifying Styles
 
-### Add a quiz question
-Open `js/quiz.js` and push a new object into the `questions` array:
-```js
+- **Global tokens** (colors, spacing): Edit `styles/base.css`
+- **Layout elements** (header, tabs): Modify `styles/layout.css`
+- **Card appearance**: Update `styles/cards.css`
+- **Code blocks**: Adjust `styles/code.css`
+- **Quiz interface**: Change `styles/quiz.css`
+
+### Adding Quiz Questions
+
+Edit `js/quiz.js` and append new question objects to the `questions` array:
+
+```javascript
 {
-  q:    "Your question here?",
+  q: "Your question here?",
   opts: ["Option A", "Option B", "Option C", "Option D"],
-  ans:  1,          // 0-indexed correct answer
-  exp:  "Explanation shown after answering.",
-},
+  ans: 1,  // 0-indexed correct answer
+  exp: "Explanation displayed after answering."
+}
 ```
 
----
+## Design Customization
 
-## 🚀 Running
+All visual elements are controlled by CSS custom properties defined in `styles/base.css`. To retheme the application, modify the `:root` variables:
 
-No server needed — just open `index.html` directly in any browser.
+| Property     | Default Value | Description              |
+|--------------|---------------|--------------------------|
+| `--teal`     | `#22d3b0`     | Primary accent color     |
+| `--gold`     | `#f5c842`     | Variables section color  |
+| `--coral`    | `#ff6b6b`     | Loops/operators color    |
+| `--purple`   | `#a78bfa`     | Strings/OOP color        |
+| `--bg`       | `#09090e`     | Page background          |
+| `--card`     | `#13131d`     | Card background          |
 
-For a proper dev workflow with live-reload:
-```bash
-# VS Code: install Live Server extension, right-click index.html → Open with Live Server
-# Or with npx:
-npx serve .
-```
+## License
 
----
-
-## 🎨 Design Tokens
-
-All colors are CSS custom properties in `styles/base.css`.  
-To retheme the whole project, only edit `:root` in that file.
-
-| Token        | Value     | Usage                  |
-|--------------|-----------|------------------------|
-| `--teal`     | `#22d3b0` | Primary accent, tabs   |
-| `--gold`     | `#f5c842` | Variables section      |
-| `--coral`    | `#ff6b6b` | Loops / operators      |
-| `--purple`   | `#a78bfa` | Strings / OOP          |
-| `--bg`       | `#09090e` | Page background        |
-| `--card`     | `#13131d` | Card background        |
+This project is open-source and available under the MIT License.
 | `--muted`    | `#7070a0` | Subtitles, comments    |
