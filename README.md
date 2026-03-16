@@ -1,43 +1,51 @@
-# Python Basics Mastery — Project Structure
+# Python Basics Mastery
 
-A visually driven Python cheat sheet for students.  
-Built with **vanilla HTML, CSS, and JS** — zero dependencies, zero build tools.
+## Overview
 
----
+Python Basics Mastery is an interactive, web-based educational resource designed to help students and beginners master fundamental Python programming concepts. This project provides a comprehensive cheat sheet with visual aids, code examples, and interactive quizzes, all built using vanilla HTML, CSS, and JavaScript for optimal performance and accessibility.
 
-## 📁 File Map
+The application features a tabbed interface that organizes content into key topics such as data types, control structures, object-oriented programming, and more. Each section includes practical code snippets, explanations, and hands-on exercises to reinforce learning.
+
+## Features
+
+- **Interactive Tabs**: Navigate through different programming topics seamlessly.
+- **Code Copy Functionality**: Easily copy code examples to your clipboard for experimentation.
+- **Integrated Quiz System**: Test your knowledge with built-in quizzes and receive instant feedback.
+- **Responsive Design**: Optimized for various screen sizes and devices.
+- **Zero Dependencies**: Built with pure HTML, CSS, and JS for fast loading and no external requirements.
+- **Customizable Themes**: Easily modify colors and styles through CSS custom properties.
+
+## Project Structure
 
 ```
 python-basics/
 │
-├── index.html                ← Entry point (open this in the browser)
+├── index.html                ← Main entry point (open in browser)
 │
-├── sections/                 ← One file per tab/topic
-│   ├── types.html            │  📝 Variables, types, I/O
-│   ├── strings.html          │  🔤 Indexing, slicing, f-strings
-│   ├── loops.html            │  🔄 if/elif/else, for, while
-│   ├── data.html             │  📦 Lists, dicts, sets, tuples
-│   ├── oop.html              │  🏗️ Functions, classes, OOP
-│   ├── switch.html           │  🔀 match/case (Python 3.10+)
-│   ├── strmethod.html        │  🧵 String method reference
-│   ├── arrmethod.html        │  📋 List method reference
-│   ├── tkinter.html          │  🖼️ Tkinter GUI basics
-│   └── quiz.html             │  🎯 Quiz wrapper markup
+├── sections/                 ← Content files for each topic
+│   ├── types.html            │ Variables, data types, and I/O operations
+│   ├── strings.html          │ String manipulation and formatting
+│   ├── loops.html            │ Control structures: if/elif/else, loops
+│   ├── data.html             │ Data structures: lists, dictionaries, sets, tuples
+│   ├── oop.html              │ Functions, classes, and object-oriented programming
+│   ├── switch.html           │ Pattern matching with match/case (Python 3.10+)
+│   ├── strmethod.html        │ String method reference
+│   ├── arrmethod.html        │ List method reference
+│   ├── tkinter.html          │ GUI basics with Tkinter
+│   └── quiz.html             │ Quiz interface markup
 │
-├── styles/                   ← One file per concern
-│   ├── base.css              │  Design tokens (:root), reset, body, scrollbar
-│   ├── layout.css            │  Header, sticky tabs, section grid, animations
-│   ├── cards.css             │  Card base + all color variants
-│   ├── code.css              │  <pre>, copy button, syntax token colors, .visual-box
-│   └── quiz.css              │  Quiz card, options, progress bar, nav
+├── styles/                   ← Stylesheets organized by concern
+│   ├── base.css              │ Design tokens, reset, and base styles
+│   ├── layout.css            │ Layout, header, tabs, and animations
+│   ├── cards.css             │ Card components and color variants
+│   ├── code.css              │ Code block styling and syntax highlighting
+│   └── quiz.css              │ Quiz-specific styles
 │
-└── js/                       ← One file per feature
-    ├── tabs.js               │  switchTab() — show/hide sections
-    ├── copy.js               │  cpCode()    — clipboard copy for code blocks
-    └── quiz.js               │  Quiz engine — questions, state, render, score
+└── js/                       ← JavaScript modules
+    ├── tabs.js               │ Tab switching functionality
+    ├── copy.js               │ Clipboard copy for code blocks
+    └── quiz.js               │ Quiz engine and state management
 ```
-
----
 
 ## ✏️ How to Edit
 
