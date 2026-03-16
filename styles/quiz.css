@@ -1,0 +1,106 @@
+/* ============================================================
+   quiz.css — Quiz card, options, progress bar, navigation
+   ============================================================ */
+
+/* ── Quiz wrapper card ───────────────────────────────────── */
+.quiz-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ── Question text ───────────────────────────────────────── */
+.quiz-q {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+/* ── Options ─────────────────────────────────────────────── */
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quiz-opt {
+  background: #0a0a12;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  color: var(--text);
+}
+
+.quiz-opt:hover   { border-color: rgba(34, 211, 176, 0.4); background: rgba(34, 211, 176, 0.05); }
+.quiz-opt.correct { border-color: var(--green);  background: rgba(74, 222, 128, 0.08); color: var(--green);  }
+.quiz-opt.wrong   { border-color: var(--coral);  background: rgba(255, 107, 107, 0.08); color: var(--coral); }
+
+/* ── Feedback box ────────────────────────────────────────── */
+.quiz-feedback {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--muted);
+  display: none;
+  padding: 14px;
+  background: #0a0a12;
+  border-radius: 8px;
+  border-left: 3px solid var(--teal);
+}
+
+.quiz-feedback.show { display: block; }
+
+/* ── Navigation ──────────────────────────────────────────── */
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.quiz-nav-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.15s;
+}
+
+.quiz-nav-btn:hover { border-color: var(--teal); color: var(--teal); }
+
+/* ── Score label ─────────────────────────────────────────── */
+.quiz-score {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+/* ── Progress bar ────────────────────────────────────────── */
+.progress-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 99px;
+  margin-bottom: 20px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal), var(--sky));
+  border-radius: 99px;
+  transition: width 0.3s;
+}

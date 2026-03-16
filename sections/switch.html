@@ -1,0 +1,132 @@
+<div class="flow-label">Match / Switch-Case (Python 3.10+)</div>
+  <div class="grid g1">
+    <div class="card teal">
+      <div class="card-title">The match Statement — Python's Switch-Case</div>
+      <div class="visual-box">
+        <svg viewBox="0 0 860 260" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="sw1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#22d3b0" stroke-width="1.5" stroke-linecap="round"/></marker>
+          </defs>
+          <!-- Central value box -->
+          <rect x="330" y="20" width="200" height="50" rx="10" fill="#0d1f1c" stroke="#22d3b0" stroke-width="2"/>
+          <text x="430" y="42" text-anchor="middle" fill="#22d3b0" font-family="JetBrains Mono" font-size="13" font-weight="700">match command</text>
+          <text x="430" y="60" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="10">The value being compared</text>
+
+          <!-- Case branches -->
+          <line x1="430" y1="70" x2="430" y2="95" stroke="#22d3b0" stroke-width="1.5"/>
+          <line x1="100" y1="95" x2="760" y2="95" stroke="#252535" stroke-width="1"/>
+
+          <!-- Case "quit" -->
+          <line x1="130" y1="95" x2="130" y2="115" stroke="#22d3b0" stroke-width="1.5"/>
+          <rect x="60" y="115" width="140" height="40" rx="6" fill="#1a1020" stroke="#a78bfa" stroke-width="1.5"/>
+          <text x="130" y="131" text-anchor="middle" fill="#a78bfa" font-family="JetBrains Mono" font-size="11" font-weight="700">case "quit"</text>
+          <text x="130" y="147" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">exact string match</text>
+          <rect x="60" y="170" width="140" height="30" rx="4" fill="#100a1a" stroke="#3a2a5a" stroke-width="1"/>
+          <text x="130" y="189" text-anchor="middle" fill="#c084fc" font-family="JetBrains Mono" font-size="10">sys.exit()</text>
+
+          <!-- Case "go" or "move" -->
+          <line x1="300" y1="95" x2="300" y2="115" stroke="#22d3b0" stroke-width="1.5"/>
+          <rect x="215" y="115" width="170" height="40" rx="6" fill="#1a1500" stroke="#f5c842" stroke-width="1.5"/>
+          <text x="300" y="131" text-anchor="middle" fill="#f5c842" font-family="JetBrains Mono" font-size="11" font-weight="700">case "go" | "move"</text>
+          <text x="300" y="147" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">OR pattern with pipe |</text>
+          <rect x="215" y="170" width="170" height="30" rx="4" fill="#1a1000" stroke="#5a4a00" stroke-width="1"/>
+          <text x="300" y="189" text-anchor="middle" fill="#fde68a" font-family="JetBrains Mono" font-size="10">move_player()</text>
+
+          <!-- Case int (capture) -->
+          <line x1="500" y1="95" x2="500" y2="115" stroke="#22d3b0" stroke-width="1.5"/>
+          <rect x="410" y="115" width="180" height="40" rx="6" fill="#200d0d" stroke="#ff6b6b" stroke-width="1.5"/>
+          <text x="500" y="131" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="11" font-weight="700">case int(n)</text>
+          <text x="500" y="147" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">type + capture pattern</text>
+          <rect x="410" y="170" width="180" height="30" rx="4" fill="#1a0800" stroke="#5a2800" stroke-width="1"/>
+          <text x="500" y="189" text-anchor="middle" fill="#fb923c" font-family="JetBrains Mono" font-size="10">set_level(n)</text>
+
+          <!-- Case _ (wildcard) -->
+          <line x1="720" y1="95" x2="720" y2="115" stroke="#22d3b0" stroke-width="1.5"/>
+          <rect x="640" y="115" width="140" height="40" rx="6" fill="#0d1f1c" stroke="#22d3b0" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <text x="710" y="131" text-anchor="middle" fill="#22d3b0" font-family="JetBrains Mono" font-size="11" font-weight="700">case _</text>
+          <text x="710" y="147" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">wildcard (default)</text>
+          <rect x="640" y="170" width="140" height="30" rx="4" fill="#0a1510" stroke="#1a3520" stroke-width="1"/>
+          <text x="710" y="189" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="10">print("unknown")</text>
+
+          <!-- Legend -->
+          <text x="430" y="240" text-anchor="middle" fill="#3a3a5a" font-family="JetBrains Mono" font-size="10">Python evaluates each case top-to-bottom, stopping at the first match. No fallthrough like C/JS.</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card purple">
+      <div class="card-title">Basic match — Replacing if/elif Chains</div>
+      <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="cm"># Old way (messy if/elif chain)</span>
+<span class="kw">if</span> <span class="var">day</span> <span class="op">==</span> <span class="str">"Mon"</span>: <span class="fn">print</span>(<span class="str">"Start of week"</span>)
+<span class="kw">elif</span> <span class="var">day</span> <span class="op">==</span> <span class="str">"Fri"</span>: <span class="fn">print</span>(<span class="str">"Weekend!"</span>)
+<span class="kw">else</span>: <span class="fn">print</span>(<span class="str">"Midweek"</span>)
+
+<span class="cm"># New way — match statement (Python 3.10+)</span>
+<span class="kw">match</span> <span class="var">day</span>:
+    <span class="kw">case</span> <span class="str">"Mon"</span>:
+        <span class="fn">print</span>(<span class="str">"Start of week"</span>)
+    <span class="kw">case</span> <span class="str">"Fri"</span> <span class="op">|</span> <span class="str">"Sat"</span> <span class="op">|</span> <span class="str">"Sun"</span>:  <span class="cm"># | = OR</span>
+        <span class="fn">print</span>(<span class="str">"Weekend vibes!"</span>)
+    <span class="kw">case</span> <span class="var">_</span>:             <span class="cm"># _ = default (catch-all)</span>
+        <span class="fn">print</span>(<span class="str">"Midweek grind"</span>)</pre>
+    </div>
+
+    <div class="card orange">
+      <div class="card-title">Capture Patterns & Guards</div>
+      <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="cm"># Capture pattern: stores matched value in variable</span>
+<span class="var">score</span> <span class="op">=</span> <span class="num">85</span>
+<span class="kw">match</span> <span class="var">score</span>:
+    <span class="kw">case</span> <span class="var">n</span> <span class="kw">if</span> <span class="var">n</span> <span class="op">>=</span> <span class="num">90</span>:  <span class="cm"># Guard: extra condition after 'if'</span>
+        <span class="fn">print</span>(<span class="str">f"A grade: {n}"</span>)
+    <span class="kw">case</span> <span class="var">n</span> <span class="kw">if</span> <span class="var">n</span> <span class="op">>=</span> <span class="num">80</span>:
+        <span class="fn">print</span>(<span class="str">f"B grade: {n}"</span>)  <span class="cm"># Prints this!</span>
+    <span class="kw">case</span> <span class="var">_</span>:
+        <span class="fn">print</span>(<span class="str">"Keep studying"</span>)
+
+<span class="cm"># Matching sequences (lists/tuples)</span>
+<span class="var">point</span> <span class="op">=</span> (<span class="num">0</span>, <span class="num">5</span>)
+<span class="kw">match</span> <span class="var">point</span>:
+    <span class="kw">case</span> (<span class="num">0</span>, <span class="num">0</span>): <span class="fn">print</span>(<span class="str">"Origin"</span>)
+    <span class="kw">case</span> (<span class="num">0</span>, <span class="var">y</span>): <span class="fn">print</span>(<span class="str">f"On Y-axis at y={y}"</span>)
+    <span class="kw">case</span> (<span class="var">x</span>, <span class="num">0</span>): <span class="fn">print</span>(<span class="str">f"On X-axis at x={x}"</span>)
+    <span class="kw">case</span> (<span class="var">x</span>, <span class="var">y</span>): <span class="fn">print</span>(<span class="str">f"Point at {x},{y}"</span>)</pre>
+    </div>
+
+    <div class="card gold">
+      <div class="card-title">Matching Dictionaries & Classes</div>
+      <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="cm"># Match against dict shape (great for API responses!)</span>
+<span class="var">event</span> <span class="op">=</span> {<span class="str">"type"</span>: <span class="str">"click"</span>, <span class="str">"button"</span>: <span class="str">"left"</span>}
+
+<span class="kw">match</span> <span class="var">event</span>:
+    <span class="kw">case</span> {<span class="str">"type"</span>: <span class="str">"click"</span>, <span class="str">"button"</span>: <span class="var">btn</span>}:
+        <span class="fn">print</span>(<span class="str">f"{btn} click!"</span>)  <span class="cm"># "left click!"</span>
+    <span class="kw">case</span> {<span class="str">"type"</span>: <span class="str">"keypress"</span>, <span class="str">"key"</span>: <span class="var">k</span>}:
+        <span class="fn">print</span>(<span class="str">f"Key pressed: {k}"</span>)
+    <span class="kw">case</span> <span class="var">_</span>:
+        <span class="fn">print</span>(<span class="str">"Unknown event"</span>)
+
+<span class="cm"># match vs if/elif: use match when comparing</span>
+<span class="cm"># the SAME variable against multiple exact values</span></pre>
+    </div>
+
+    <div class="card coral">
+      <div class="card-title">Real-World CLI Command Router</div>
+      <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="cm"># Classic use-case: routing commands in a game/CLI</span>
+<span class="kw">def</span> <span class="fn">handle_command</span>(<span class="var">cmd</span>):
+    <span class="kw">match</span> <span class="var">cmd</span>.<span class="fn">split</span>():         <span class="cm"># Split "go north" → ["go","north"]</span>
+        <span class="kw">case</span> [<span class="str">"quit"</span>]:
+            <span class="fn">print</span>(<span class="str">"Goodbye!"</span>)
+        <span class="kw">case</span> [<span class="str">"go"</span>, <span class="var">direction</span>]:
+            <span class="fn">print</span>(<span class="str">f"Moving {direction}"</span>)
+        <span class="kw">case</span> [<span class="str">"pick"</span>, <span class="str">"up"</span>, <span class="var">item</span>]:
+            <span class="fn">print</span>(<span class="str">f"Picked up {item}"</span>)
+        <span class="kw">case</span> [<span class="var">unknown</span>, <span class="op">*</span><span class="var">rest</span>]:   <span class="cm"># *rest = remaining words</span>
+            <span class="fn">print</span>(<span class="str">f"Unknown: {unknown}"</span>)
+
+<span class="fn">handle_command</span>(<span class="str">"go north"</span>)    <span class="cm"># Moving north</span>
+<span class="fn">handle_command</span>(<span class="str">"pick up sword"</span>) <span class="cm"># Picked up sword</span></pre>
+    </div>
+  </div>
+</div>

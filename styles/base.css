@@ -1,0 +1,100 @@
+/* ============================================================
+   base.css — Design tokens, reset, typography, layout
+   ============================================================ */
+
+/* ── Design Tokens ───────────────────────────────────────── */
+:root {
+  /* Background layers */
+  --bg:      #09090e;
+  --surface: #0f0f17;
+  --card:    #13131d;
+
+  /* Borders */
+  --border:  #252535;
+  --border2: #2e2e45;
+
+  /* Text */
+  --text:  #f0f0f8;
+  --muted: #7070a0;
+
+  /* Accent – Gold */
+  --gold:     #f5c842;
+  --gold2:    #e8a820;
+  --gold3:    #fde68a;
+  --gold-glow: rgba(245, 200, 66, 0.18);
+  --gold-dim:  rgba(245, 200, 66, 0.07);
+
+  /* Accent – Teal */
+  --teal:      #22d3b0;
+  --teal-glow: rgba(34, 211, 176, 0.15);
+
+  /* Accent – Coral */
+  --coral:      #ff6b6b;
+  --coral-glow: rgba(255, 107, 107, 0.15);
+
+  /* Accent – Purple */
+  --purple:      #a78bfa;
+  --purple-glow: rgba(167, 139, 250, 0.15);
+
+  /* Accent – Green */
+  --green:      #4ade80;
+  --green-glow: rgba(74, 222, 128, 0.15);
+
+  /* Accent – Misc */
+  --pink:   #f472b6;
+  --sky:    #38bdf8;
+  --orange: #fb923c;
+  --pink-glow:   rgba(244, 114, 182, 0.15);
+  --orange-glow: rgba(251, 146, 60, 0.15);
+}
+
+/* ── Reset ───────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Body & global background ────────────────────────────── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Grid overlay + radial glow */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(34, 211, 176, 0.07) 0%, transparent 60%),
+    linear-gradient(rgba(34, 211, 176, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 176, 0.025) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Page wrapper ────────────────────────────────────────── */
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 20px 100px;
+}
+
+/* ── Custom scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar         { width: 6px; height: 6px; }
+::-webkit-scrollbar-track   { background: transparent; }
+::-webkit-scrollbar-thumb   { background: #252535; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #353555; }

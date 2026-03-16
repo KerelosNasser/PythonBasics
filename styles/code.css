@@ -1,0 +1,64 @@
+/* ============================================================
+   code.css — <pre> blocks, copy button, syntax tokens
+   ============================================================ */
+
+/* ── Code block ──────────────────────────────────────────── */
+pre {
+  background: #0a0a12;
+  border: 1px solid #1c1c2c;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  line-height: 1.75;
+  overflow-x: auto;
+  position: relative;
+}
+
+/* ── Copy button ─────────────────────────────────────────── */
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #1a1a2e;
+  border: 1px solid #2a2a3e;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+  opacity: 0;
+}
+
+pre:hover .copy-btn { opacity: 1; }
+
+.copy-btn:hover  { background: var(--teal);  color: #000; border-color: var(--teal);  }
+.copy-btn.copied { background: var(--green); color: #000; border-color: var(--green); }
+
+/* ── Syntax tokens ───────────────────────────────────────── */
+.kw  { color: #c084fc; font-weight: 700; }   /* keywords: def, if, for … */
+.fn  { color: var(--gold); }                  /* function names           */
+.str { color: var(--green); }                 /* string literals          */
+.num { color: #fb923c; }                      /* number literals          */
+.cm  { color: #3a3a5a; font-style: italic; }  /* comments                 */
+.op  { color: var(--coral); }                 /* operators                */
+.cls { color: var(--teal); }                  /* class names              */
+.var { color: var(--text); }                  /* variables                */
+
+/* ── SVG visual containers ───────────────────────────────── */
+.visual-box {
+  background: #0a0a12;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.visual-box svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}

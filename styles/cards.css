@@ -1,0 +1,80 @@
+/* ============================================================
+   cards.css — Card base + all color variants
+   ============================================================ */
+
+/* ── Card base ───────────────────────────────────────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px 22px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* Top accent bar */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 14px 14px 0 0;
+}
+
+/* ── Card title ──────────────────────────────────────────── */
+.card-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 14px;
+}
+
+/* ── Color variants ──────────────────────────────────────── */
+
+/* Gold */
+.card.gold::before                { background: var(--gold); }
+.card.gold:hover                  { border-color: rgba(245, 200, 66, 0.4); box-shadow: 0 8px 32px var(--gold-glow); }
+.card.gold .card-title            { color: var(--gold); }
+
+/* Teal */
+.card.teal::before                { background: var(--teal); }
+.card.teal:hover                  { border-color: rgba(34, 211, 176, 0.4); box-shadow: 0 8px 32px var(--teal-glow); }
+.card.teal .card-title            { color: var(--teal); }
+
+/* Coral */
+.card.coral::before               { background: var(--coral); }
+.card.coral:hover                 { border-color: rgba(255, 107, 107, 0.4); box-shadow: 0 8px 32px var(--coral-glow); }
+.card.coral .card-title           { color: var(--coral); }
+
+/* Purple */
+.card.purple::before              { background: var(--purple); }
+.card.purple:hover                { border-color: rgba(167, 139, 250, 0.4); box-shadow: 0 8px 32px var(--purple-glow); }
+.card.purple .card-title          { color: var(--purple); }
+
+/* Sky */
+.card.sky::before                 { background: var(--sky); }
+.card.sky:hover                   { border-color: rgba(56, 189, 248, 0.4); box-shadow: 0 8px 32px rgba(56, 189, 248, 0.15); }
+.card.sky .card-title             { color: var(--sky); }
+
+/* Pink */
+.card.pink::before                { background: var(--pink); }
+.card.pink:hover                  { border-color: rgba(244, 114, 182, 0.4); box-shadow: 0 8px 32px var(--pink-glow); }
+.card.pink .card-title            { color: var(--pink); }
+
+/* Orange */
+.card.orange::before              { background: var(--orange); }
+.card.orange:hover                { border-color: rgba(251, 146, 60, 0.4); box-shadow: 0 8px 32px var(--orange-glow); }
+.card.orange .card-title          { color: var(--orange); }
+
+/* Green */
+.card.green::before               { background: var(--green); }
+.card.green:hover                 { border-color: rgba(74, 222, 128, 0.4); box-shadow: 0 8px 32px var(--green-glow); }
+.card.green .card-title           { color: var(--green); }

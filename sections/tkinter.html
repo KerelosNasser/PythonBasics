@@ -1,0 +1,208 @@
+<div class="flow-label">Tkinter — Python's Built-In GUI Framework</div>
+  <div class="grid g1">
+    <div class="card gold">
+      <div class="card-title">Tkinter Architecture & Widget Tree</div>
+      <div class="visual-box">
+        <svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="tk1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#f5c842" stroke-width="1.5" stroke-linecap="round"/></marker>
+          </defs>
+
+          <!-- Root window -->
+          <rect x="330" y="10" width="200" height="50" rx="10" fill="#1a1500" stroke="#f5c842" stroke-width="2"/>
+          <text x="430" y="32" text-anchor="middle" fill="#f5c842" font-family="JetBrains Mono" font-size="13" font-weight="700">tk.Tk()</text>
+          <text x="430" y="50" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="10">Root Window (parent of all)</text>
+
+          <!-- Connecting lines -->
+          <line x1="430" y1="60" x2="430" y2="80" stroke="#f5c842" stroke-width="1.5"/>
+          <line x1="120" y1="80" x2="740" y2="80" stroke="#252535" stroke-width="1"/>
+
+          <!-- Frame -->
+          <line x1="430" y1="80" x2="430" y2="100" stroke="#22d3b0" stroke-width="1.5"/>
+          <rect x="350" y="100" width="160" height="40" rx="6" fill="#0d1f1c" stroke="#22d3b0" stroke-width="1.5"/>
+          <text x="430" y="118" text-anchor="middle" fill="#22d3b0" font-family="JetBrains Mono" font-size="11" font-weight="700">Frame</text>
+          <text x="430" y="133" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">groups widgets</text>
+
+          <line x1="430" y1="140" x2="430" y2="160" stroke="#22d3b0" stroke-width="1.5"/>
+          <line x1="120" y1="160" x2="740" y2="160" stroke="#252535" stroke-width="1"/>
+
+          <!-- Widget leaf nodes -->
+          <line x1="120" y1="160" x2="120" y2="180" stroke="#a78bfa" stroke-width="1.5"/>
+          <rect x="50" y="180" width="140" height="40" rx="6" fill="#1a1020" stroke="#a78bfa" stroke-width="1.5"/>
+          <text x="120" y="198" text-anchor="middle" fill="#a78bfa" font-family="JetBrains Mono" font-size="11" font-weight="700">Label</text>
+          <text x="120" y="213" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">displays text/image</text>
+
+          <line x1="290" y1="160" x2="290" y2="180" stroke="#4ade80" stroke-width="1.5"/>
+          <rect x="210" y="180" width="160" height="40" rx="6" fill="#0a200d" stroke="#4ade80" stroke-width="1.5"/>
+          <text x="290" y="198" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="11" font-weight="700">Button</text>
+          <text x="290" y="213" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">clickable, calls command</text>
+
+          <line x1="480" y1="160" x2="480" y2="180" stroke="#38bdf8" stroke-width="1.5"/>
+          <rect x="390" y="180" width="180" height="40" rx="6" fill="#0d1828" stroke="#38bdf8" stroke-width="1.5"/>
+          <text x="480" y="198" text-anchor="middle" fill="#38bdf8" font-family="JetBrains Mono" font-size="11" font-weight="700">Entry</text>
+          <text x="480" y="213" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">single-line text input</text>
+
+          <line x1="660" y1="160" x2="660" y2="180" stroke="#fb923c" stroke-width="1.5"/>
+          <rect x="580" y="180" width="160" height="40" rx="6" fill="#1a0800" stroke="#fb923c" stroke-width="1.5"/>
+          <text x="660" y="198" text-anchor="middle" fill="#fb923c" font-family="JetBrains Mono" font-size="11" font-weight="700">Text</text>
+          <text x="660" y="213" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">multi-line text area</text>
+
+          <!-- More widgets row -->
+          <line x1="430" y1="220" x2="430" y2="240" stroke="#f5c842" stroke-width="1" stroke-dasharray="3 2"/>
+          <text x="175" y="258" text-anchor="middle" fill="#555577" font-family="JetBrains Mono" font-size="10">Checkbutton • Radiobutton • Listbox</text>
+          <text x="595" y="258" text-anchor="middle" fill="#555577" font-family="JetBrains Mono" font-size="10">Scale • Spinbox • Canvas • Menu</text>
+
+          <!-- Geometry managers -->
+          <rect x="20" y="270" width="820" height="24" rx="4" fill="#0a0a12" stroke="#1a1a2a" stroke-width="1"/>
+          <text x="430" y="285" text-anchor="middle" fill="#f5c842" font-family="JetBrains Mono" font-size="10" font-weight="700">Layout Managers: .pack() • .grid(row, column) • .place(x, y)</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card teal">
+      <div class="card-title">Your First Tkinter Window</div>
+      <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="kw">import</span> <span class="cls">tkinter</span> <span class="kw">as</span> <span class="cls">tk</span>
+
+<span class="cm"># 1. Create the root window (the app itself)</span>
+<span class="var">root</span> <span class="op">=</span> <span class="cls">tk</span>.<span class="cls">Tk</span>()
+<span class="var">root</span>.<span class="fn">title</span>(<span class="str">"My First App"</span>)
+<span class="var">root</span>.<span class="fn">geometry</span>(<span class="str">"400x300"</span>)    <span class="cm"># width x height</span>
+<span class="var">root</span>.<span class="fn">resizable</span>(<span class="kw">False</span>, <span class="kw">False</span>) <span class="cm"># lock window size</span>
+
+<span class="cm"># 2. Add widgets</span>
+<span class="var">label</span> <span class="op">=</span> <span class="cls">tk</span>.<span class="cls">Label</span>(<span class="var">root</span>, <span class="var">text</span><span class="op">=</span><span class="str">"Hello, Tkinter!"</span>,
+                  <span class="var">font</span><span class="op">=</span>(<span class="str">"Arial"</span>, <span class="num">18</span>), <span class="var">fg</span><span class="op">=</span><span class="str">"#22d3b0"</span>)
+<span class="var">label</span>.<span class="fn">pack</span>(<span class="var">pady</span><span class="op">=</span><span class="num">20</span>)           <span class="cm"># pady = vertical padding</span>
+
+<span class="var">btn</span> <span class="op">=</span> <span class="cls">tk</span>.<span class="cls">Button</span>(<span class="var">root</span>, <span class="var">text</span><span class="op">=</span><span class="str">"Click Me!"</span>,
+                <span class="var">command</span><span class="op">=</span><span class="kw">lambda</span>: <span class="var">label</span>.<span class="fn">config</span>(<span class="var">text</span><span class="op">=</span><span class="str">"Clicked!"</span>))
+<span class="var">btn</span>.<span class="fn">pack</span>()
+
+<span class="cm"># 3. Start the event loop (keep window open)</span>
+<span class="var">root</span>.<span class="fn">mainloop</span>()  <span class="cm"># blocks until window closes</span></pre>
+    </div>
+
+    <div class="card purple">
+      <div class="card-title">Grid Layout & Entry Input</div>
+      <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="kw">import</span> <span class="cls">tkinter</span> <span class="kw">as</span> <span class="cls">tk</span>
+
+<span class="var">root</span> <span class="op">=</span> <span class="cls">tk</span>.<span class="cls">Tk</span>()
+<span class="var">root</span>.<span class="fn">title</span>(<span class="str">"Login Form"</span>)
+
+<span class="cm"># Labels in column 0, Entry boxes in column 1</span>
+<span class="cls">tk</span>.<span class="cls">Label</span>(<span class="var">root</span>, <span class="var">text</span><span class="op">=</span><span class="str">"Username:"</span>).<span class="fn">grid</span>(<span class="var">row</span><span class="op">=</span><span class="num">0</span>, <span class="var">column</span><span class="op">=</span><span class="num">0</span>, <span class="var">padx</span><span class="op">=</span><span class="num">8</span>, <span class="var">pady</span><span class="op">=</span><span class="num">8</span>)
+<span class="var">entry_user</span> <span class="op">=</span> <span class="cls">tk</span>.<span class="cls">Entry</span>(<span class="var">root</span>, <span class="var">width</span><span class="op">=</span><span class="num">20</span>)
+<span class="var">entry_user</span>.<span class="fn">grid</span>(<span class="var">row</span><span class="op">=</span><span class="num">0</span>, <span class="var">column</span><span class="op">=</span><span class="num">1</span>)
+
+<span class="cls">tk</span>.<span class="cls">Label</span>(<span class="var">root</span>, <span class="var">text</span><span class="op">=</span><span class="str">"Password:"</span>).<span class="fn">grid</span>(<span class="var">row</span><span class="op">=</span><span class="num">1</span>, <span class="var">column</span><span class="op">=</span><span class="num">0</span>, <span class="var">padx</span><span class="op">=</span><span class="num">8</span>)
+<span class="var">entry_pass</span> <span class="op">=</span> <span class="cls">tk</span>.<span class="cls">Entry</span>(<span class="var">root</span>, <span class="var">show</span><span class="op">=</span><span class="str">"*"</span>)  <span class="cm"># hide with *</span>
+<span class="var">entry_pass</span>.<span class="fn">grid</span>(<span class="var">row</span><span class="op">=</span><span class="num">1</span>, <span class="var">column</span><span class="op">=</span><span class="num">1</span>)
+
+<span class="kw">def</span> <span class="fn">login</span>():
+    <span class="var">user</span> <span class="op">=</span> <span class="var">entry_user</span>.<span class="fn">get</span>()   <span class="cm"># .get() reads entry value</span>
+    <span class="fn">print</span>(<span class="str">f"Logging in as: {user}"</span>)
+
+<span class="cls">tk</span>.<span class="cls">Button</span>(<span class="var">root</span>, <span class="var">text</span><span class="op">=</span><span class="str">"Login"</span>, <span class="var">command</span><span class="op">=</span><span class="var">login</span>).<span class="fn">grid</span>(<span class="var">row</span><span class="op">=</span><span class="num">2</span>, <span class="var">column</span><span class="op">=</span><span class="num">1</span>, <span class="var">pady</span><span class="op">=</span><span class="num">8</span>)
+<span class="var">root</span>.<span class="fn">mainloop</span>()</pre>
+    </div>
+
+    <div class="card coral">
+      <div class="card-title">StringVar, Checkbutton & Messagebox</div>
+      <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="kw">import</span> <span class="cls">tkinter</span> <span class="kw">as</span> <span class="cls">tk</span>
+<span class="kw">from</span> <span class="cls">tkinter</span> <span class="kw">import</span> <span class="cls">messagebox</span>
+
+<span class="var">root</span> <span class="op">=</span> <span class="cls">tk</span>.<span class="cls">Tk</span>()
+
+<span class="cm"># StringVar = reactive variable that updates the UI</span>
+<span class="var">name_var</span> <span class="op">=</span> <span class="cls">tk</span>.<span class="cls">StringVar</span>()
+<span class="cls">tk</span>.<span class="cls">Entry</span>(<span class="var">root</span>, <span class="var">textvariable</span><span class="op">=</span><span class="var">name_var</span>).<span class="fn">pack</span>()
+
+<span class="cm"># IntVar for checkboxes (0 or 1)</span>
+<span class="var">agree_var</span> <span class="op">=</span> <span class="cls">tk</span>.<span class="cls">IntVar</span>()
+<span class="cls">tk</span>.<span class="cls">Checkbutton</span>(<span class="var">root</span>, <span class="var">text</span><span class="op">=</span><span class="str">"I agree"</span>,
+               <span class="var">variable</span><span class="op">=</span><span class="var">agree_var</span>).<span class="fn">pack</span>()
+
+<span class="kw">def</span> <span class="fn">submit</span>():
+    <span class="kw">if</span> <span class="var">agree_var</span>.<span class="fn">get</span>() <span class="op">==</span> <span class="num">0</span>:
+        <span class="cls">messagebox</span>.<span class="fn">showwarning</span>(<span class="str">"Oops"</span>, <span class="str">"Please agree first!"</span>)
+    <span class="kw">else</span>:
+        <span class="cls">messagebox</span>.<span class="fn">showinfo</span>(<span class="str">"Hi!"</span>, <span class="str">f"Hello {name_var.get()}!"</span>)
+
+<span class="cls">tk</span>.<span class="cls">Button</span>(<span class="var">root</span>, <span class="var">text</span><span class="op">=</span><span class="str">"Submit"</span>, <span class="var">command</span><span class="op">=</span><span class="var">submit</span>).<span class="fn">pack</span>()
+<span class="var">root</span>.<span class="fn">mainloop</span>()</pre>
+    </div>
+
+    <div class="card sky">
+      <div class="card-title">Full Mini-App: Counter</div>
+      <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="kw">import</span> <span class="cls">tkinter</span> <span class="kw">as</span> <span class="cls">tk</span>
+
+<span class="var">root</span> <span class="op">=</span> <span class="cls">tk</span>.<span class="cls">Tk</span>()
+<span class="var">root</span>.<span class="fn">title</span>(<span class="str">"Counter App"</span>)
+<span class="var">root</span>.<span class="fn">geometry</span>(<span class="str">"260x180"</span>)
+
+<span class="var">count</span> <span class="op">=</span> <span class="cls">tk</span>.<span class="cls">IntVar</span>(<span class="var">value</span><span class="op">=</span><span class="num">0</span>)
+
+<span class="cm"># Display label tied to the IntVar</span>
+<span class="cls">tk</span>.<span class="cls">Label</span>(<span class="var">root</span>, <span class="var">textvariable</span><span class="op">=</span><span class="var">count</span>,
+         <span class="var">font</span><span class="op">=</span>(<span class="str">"Arial"</span>, <span class="num">48</span>, <span class="str">"bold"</span>),
+         <span class="var">fg</span><span class="op">=</span><span class="str">"#22d3b0"</span>).<span class="fn">pack</span>(<span class="var">pady</span><span class="op">=</span><span class="num">16</span>)
+
+<span class="cm"># Button row using frame</span>
+<span class="var">frame</span> <span class="op">=</span> <span class="cls">tk</span>.<span class="cls">Frame</span>(<span class="var">root</span>)
+<span class="var">frame</span>.<span class="fn">pack</span>()
+<span class="cls">tk</span>.<span class="cls">Button</span>(<span class="var">frame</span>, <span class="var">text</span><span class="op">=</span><span class="str">"−"</span>, <span class="var">font</span><span class="op">=</span>(<span class="str">"Arial"</span>, <span class="num">20</span>),
+          <span class="var">command</span><span class="op">=</span><span class="kw">lambda</span>: <span class="var">count</span>.<span class="fn">set</span>(<span class="var">count</span>.<span class="fn">get</span>()<span class="op">-</span><span class="num">1</span>)).<span class="fn">pack</span>(<span class="var">side</span><span class="op">=</span><span class="str">"left"</span>, <span class="var">padx</span><span class="op">=</span><span class="num">8</span>)
+<span class="cls">tk</span>.<span class="cls">Button</span>(<span class="var">frame</span>, <span class="var">text</span><span class="op">=</span><span class="str">"+"</span>, <span class="var">font</span><span class="op">=</span>(<span class="str">"Arial"</span>, <span class="num">20</span>),
+          <span class="var">command</span><span class="op">=</span><span class="kw">lambda</span>: <span class="var">count</span>.<span class="fn">set</span>(<span class="var">count</span>.<span class="fn">get</span>()<span class="op">+</span><span class="num">1</span>)).<span class="fn">pack</span>(<span class="var">side</span><span class="op">=</span><span class="str">"left"</span>, <span class="var">padx</span><span class="op">=</span><span class="num">8</span>)
+<span class="cls">tk</span>.<span class="cls">Button</span>(<span class="var">root</span>, <span class="var">text</span><span class="op">=</span><span class="str">"Reset"</span>,
+          <span class="var">command</span><span class="op">=</span><span class="kw">lambda</span>: <span class="var">count</span>.<span class="fn">set</span>(<span class="num">0</span>)).<span class="fn">pack</span>(<span class="var">pady</span><span class="op">=</span><span class="num">8</span>)
+<span class="var">root</span>.<span class="fn">mainloop</span>()</pre>
+    </div>
+
+    <div class="card orange" style="grid-column:1/-1">
+      <div class="card-title">Tkinter Cheat Sheet — Layout Managers Compared</div>
+      <div class="visual-box">
+        <svg viewBox="0 0 860 180" xmlns="http://www.w3.org/2000/svg">
+          <!-- pack -->
+          <rect x="10" y="10" width="260" height="160" rx="8" fill="#1a0800" stroke="#fb923c" stroke-width="1.5"/>
+          <text x="140" y="34" text-anchor="middle" fill="#fb923c" font-family="JetBrains Mono" font-size="12" font-weight="700">.pack()</text>
+          <text x="140" y="52" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">Stack widgets top-to-bottom</text>
+          <rect x="30" y="60" width="220" height="24" rx="3" fill="#2a1500" stroke="#fb923c" stroke-width="1"/>
+          <text x="140" y="76" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="10">Widget A</text>
+          <rect x="30" y="90" width="220" height="24" rx="3" fill="#2a1500" stroke="#fb923c" stroke-width="1"/>
+          <text x="140" y="106" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="10">Widget B</text>
+          <text x="20" y="145" fill="#555577" font-family="JetBrains Mono" font-size="9">side="left/right/top/bottom"</text>
+          <text x="20" y="160" fill="#555577" font-family="JetBrains Mono" font-size="9">fill=tk.X / pady / padx</text>
+
+          <!-- grid -->
+          <rect x="295" y="10" width="270" height="160" rx="8" fill="#0d1828" stroke="#38bdf8" stroke-width="1.5"/>
+          <text x="430" y="34" text-anchor="middle" fill="#38bdf8" font-family="JetBrains Mono" font-size="12" font-weight="700">.grid()</text>
+          <text x="430" y="52" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">Row &amp; column table layout</text>
+          <rect x="310" y="60" width="115" height="24" rx="3" fill="#0d2040" stroke="#38bdf8" stroke-width="1"/>
+          <text x="367" y="76" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="9">row=0 col=0</text>
+          <rect x="435" y="60" width="115" height="24" rx="3" fill="#0d2040" stroke="#38bdf8" stroke-width="1"/>
+          <text x="492" y="76" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="9">row=0 col=1</text>
+          <rect x="310" y="90" width="115" height="24" rx="3" fill="#0d2040" stroke="#38bdf8" stroke-width="1"/>
+          <text x="367" y="106" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="9">row=1 col=0</text>
+          <rect x="435" y="90" width="115" height="24" rx="3" fill="#0d2040" stroke="#38bdf8" stroke-width="1"/>
+          <text x="492" y="106" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="9">row=1 col=1</text>
+          <text x="305" y="145" fill="#555577" font-family="JetBrains Mono" font-size="9">columnspan=2 (merge cells)</text>
+          <text x="305" y="160" fill="#555577" font-family="JetBrains Mono" font-size="9">sticky="nsew" (fill cell)</text>
+
+          <!-- place -->
+          <rect x="590" y="10" width="260" height="160" rx="8" fill="#1a1020" stroke="#a78bfa" stroke-width="1.5"/>
+          <text x="720" y="34" text-anchor="middle" fill="#a78bfa" font-family="JetBrains Mono" font-size="12" font-weight="700">.place()</text>
+          <text x="720" y="52" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">Absolute pixel positioning</text>
+          <rect x="620" y="65" width="80" height="24" rx="3" fill="#2a1040" stroke="#a78bfa" stroke-width="1"/>
+          <text x="660" y="81" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="9">x=20, y=55</text>
+          <rect x="720" y="100" width="100" height="24" rx="3" fill="#2a1040" stroke="#a78bfa" stroke-width="1"/>
+          <text x="770" y="116" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="9">x=130, y=90</text>
+          <text x="600" y="145" fill="#555577" font-family="JetBrains Mono" font-size="9">relx=0.5 rely=0.5 (relative %)</text>
+          <text x="600" y="160" fill="#555577" font-family="JetBrains Mono" font-size="9">anchor="center" (origin point)</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
