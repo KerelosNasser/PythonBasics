@@ -4,7 +4,7 @@
 
 /* Special Tab Button */
 .tab-btn.tab-special {
-    background: rgba(245, 200, 66, 0.05);
+    background: rgb(255, 255, 255);
     border-color: rgba(245, 200, 66, 0.2);
     color: #f5c842;
     position: relative;
@@ -94,8 +94,8 @@
     font-size: 1.2rem;
     margin-right: 16px;
     border-radius: 50%;
-    background: #111;
-    border: 2px solid #333;
+    background: #000000;
+    border: 3px solid #0027b5;
 }
 
 .rank-1 .rank-badge { background: linear-gradient(135deg, #ffd700, #b8860b); border-color: #ffd700; color: #000; }
