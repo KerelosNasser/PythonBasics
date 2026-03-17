@@ -11,19 +11,15 @@
  */
 const students = [
   { name: "Gelan", points: 10, badge: "Newbie", badgeColor: "#92015dff" },
-  { name: "Meriam", points: 10, badge: "Master", badgeColor: "#f5df20ff" },
-  { name: "Monica", points: 10, badge: "Pro", badgeColor: "#2e12ceff" },
-  {
-    name: "Merolla",
-    points: 10,
-    badge: "Ones to watch",
-    badgeColor: "#e164a0ff",
-  },
+  { name: "Jomana", points: 10, badge: "Oracle", badgeColor: "#8a2525ff" },
+  { name: "Meriam", points: 10, badge: "Master", badgeColor: "#0aa99eff" },
+  { name: "Monica", points: 10, badge: "Pro", badgeColor: "#745cfcff" },
+  { name: "Merolla", points: 10, badge: "Ones to watch", badgeColor: "#e164a0ff" },
   { name: "Peter", points: 0, badge: "Alchemist", badgeColor: "#4ade80" },
   { name: "George", points: 0, badge: "Grinder", badgeColor: "#f5c842" },
   { name: "Lilian", points: 0, badge: "Thinker", badgeColor: "#fb923c" },
-  { name: "Youssef", points: 0, badge: "Active", badgeColor: "#ff6b6b" },
-  { name: "Selvana", points: 0, badge: "Ghost", badgeColor: "#7070a0" },
+  { name: "Youssef", points: -5, badge: "Active", badgeColor: "#ff6b6b" },
+  { name: "Selvana", points: -99, badge: "Ghost", badgeColor: "#7070a0" },
 ];
 
 /** * Renders the students into the leaderboard list.
@@ -43,7 +39,7 @@ function renderLeaderboard() {
             <div class="student-info">
                 <div class="student-name">
                     ${s.name}
-                    <span class="student-badge" style="background: ${s.badgeColor}; color: #000">
+                    <span class="student-badge" style="background: ${s.badgeColor}; color: #fff">
                         ${s.badge}
                     </span>
                 </div>
