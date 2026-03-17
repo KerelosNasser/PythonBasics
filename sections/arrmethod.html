@@ -1,109 +1,70 @@
-<div class="flow-label">List & Array Built-In Methods — Full Arsenal</div>
-  <div class="grid g1">
-    <div class="card teal">
-      <div class="card-title">List Methods — Visual State Machine</div>
-      <div class="visual-box">
-        <svg viewBox="0 0 860 260" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <marker id="am1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#22d3b0" stroke-width="1.5" stroke-linecap="round"/></marker>
-            <marker id="am2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#ff6b6b" stroke-width="1.5" stroke-linecap="round"/></marker>
-            <marker id="am3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#f5c842" stroke-width="1.5" stroke-linecap="round"/></marker>
-          </defs>
+<div class="flow-label">Deep Dive: List (Array) Methods Cheat Sheet</div>
+<div class="grid g1">
+  <div class="card coral">
+    <div class="card-title">List Modification Pipeline</div>
+    <div class="visual-box">
+      <svg viewBox="0 0 860 140" xmlns="http://www.w3.org/2000/svg">
+        <!-- Initial List -->
+        <rect x="20" y="45" width="140" height="40" rx="6" fill="#200d0d" stroke="#ff6b6b" stroke-width="2"/>
+        <text x="90" y="71" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="12">[10, 20]</text>
+        
+        <defs><marker id="tk3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#7070a0" stroke-width="1.5" stroke-linecap="round"/></marker></defs>
 
-          <!-- Base list -->
-          <text x="430" y="18" text-anchor="middle" fill="#22d3b0" font-family="JetBrains Mono" font-size="12" font-weight="700">heroes = ["Batman", "Flash", "Aquaman"]</text>
-          <rect x="180" y="28" width="120" height="36" rx="4" fill="#0d1f1c" stroke="#22d3b0" stroke-width="1.5"/>
-          <text x="240" y="51" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="11">"Batman"</text>
-          <rect x="308" y="28" width="104" height="36" rx="4" fill="#0d1f1c" stroke="#22d3b0" stroke-width="1.5"/>
-          <text x="360" y="51" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="11">"Flash"</text>
-          <rect x="420" y="28" width="120" height="36" rx="4" fill="#0d1f1c" stroke="#22d3b0" stroke-width="1.5"/>
-          <text x="480" y="51" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="11">"Aquaman"</text>
+        <!-- Arrows & Methods -->
+        <path d="M 160 65 L 220 30" fill="none" stroke="#7070a0" stroke-width="1.5" marker-end="url(#tk3)"/>
+        <text x="190" y="40" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="9" transform="rotate(-30, 210, 40)">.append(30)</text>
+        <rect x="230" y="10" width="140" height="30" rx="4" fill="#0a0a12" stroke="#4ade80" stroke-width="1"/>
+        <text x="300" y="30" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="11">[10, 20, 30]</text>
 
-          <!-- Indices -->
-          <text x="240" y="78" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="9">[0]</text>
-          <text x="360" y="78" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="9">[1]</text>
-          <text x="480" y="78" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="9">[2]</text>
+        <path d="M 160 65 L 220 65" fill="none" stroke="#7070a0" stroke-width="1.5" marker-end="url(#tk3)"/>
+        <text x="190" y="60" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="9">.insert(1, 15)</text>
+        <rect x="230" y="50" width="140" height="30" rx="4" fill="#0a0a12" stroke="#38bdf8" stroke-width="1"/>
+        <text x="300" y="70" text-anchor="middle" fill="#38bdf8" font-family="JetBrains Mono" font-size="11">[10, 15, 20]</text>
 
-          <!-- .append() arrow right -->
-          <line x1="540" y1="46" x2="600" y2="46" stroke="#22d3b0" stroke-width="1.5" marker-end="url(#am1)"/>
-          <rect x="605" y="28" width="100" height="36" rx="4" fill="#0d1f1c" stroke="#22d3b0" stroke-width="2" stroke-dasharray="4 2"/>
-          <text x="655" y="49" text-anchor="middle" fill="#22d3b0" font-family="JetBrains Mono" font-size="10">"Superman"</text>
-          <text x="570" y="40" text-anchor="middle" fill="#22d3b0" font-family="JetBrains Mono" font-size="9">.append()</text>
-
-          <!-- .insert(0,...) arrow left -->
-          <line x1="180" y1="46" x2="120" y2="46" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#am1)"/>
-          <rect x="20" y="28" width="95" height="36" rx="4" fill="#1a1020" stroke="#a78bfa" stroke-width="2" stroke-dasharray="4 2"/>
-          <text x="67" y="49" text-anchor="middle" fill="#a78bfa" font-family="JetBrains Mono" font-size="10">"Wonder"</text>
-          <text x="147" y="40" text-anchor="middle" fill="#a78bfa" font-family="JetBrains Mono" font-size="9">.insert(0)</text>
-
-          <!-- .remove() -->
-          <line x1="360" y1="64" x2="360" y2="100" stroke="#ff6b6b" stroke-width="1.5" marker-end="url(#am2)"/>
-          <rect x="295" y="105" width="130" height="30" rx="4" fill="#200d0d" stroke="#ff6b6b" stroke-width="1"/>
-          <text x="360" y="124" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="10">.remove("Flash") ✕</text>
-
-          <!-- .pop() -->
-          <line x1="480" y1="64" x2="480" y2="100" stroke="#fb923c" stroke-width="1.5" marker-end="url(#am2)"/>
-          <rect x="415" y="105" width="130" height="30" rx="4" fill="#1a0800" stroke="#fb923c" stroke-width="1"/>
-          <text x="480" y="124" text-anchor="middle" fill="#fb923c" font-family="JetBrains Mono" font-size="10">.pop() → "Aquaman"</text>
-
-          <!-- sort/reverse/clear -->
-          <rect x="20" y="155" width="820" height="90" rx="8" fill="#09090e" stroke="#252535" stroke-width="1"/>
-          <text x="430" y="178" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="10" font-weight="700">Other Essential Methods</text>
-
-          <text x="60" y="202" text-anchor="middle" fill="#f5c842" font-family="JetBrains Mono" font-size="10" font-weight="700">.sort()</text>
-          <text x="60" y="218" text-anchor="middle" fill="#555577" font-family="JetBrains Mono" font-size="9">in-place sort</text>
-          <text x="60" y="232" text-anchor="middle" fill="#555577" font-family="JetBrains Mono" font-size="9">modifies list</text>
-
-          <text x="185" y="202" text-anchor="middle" fill="#22d3b0" font-family="JetBrains Mono" font-size="10" font-weight="700">sorted()</text>
-          <text x="185" y="218" text-anchor="middle" fill="#555577" font-family="JetBrains Mono" font-size="9">returns new</text>
-          <text x="185" y="232" text-anchor="middle" fill="#555577" font-family="JetBrains Mono" font-size="9">sorted list</text>
-
-          <text x="310" y="202" text-anchor="middle" fill="#a78bfa" font-family="JetBrains Mono" font-size="10" font-weight="700">.reverse()</text>
-          <text x="310" y="218" text-anchor="middle" fill="#555577" font-family="JetBrains Mono" font-size="9">flips in-place</text>
-
-          <text x="435" y="202" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="10" font-weight="700">.clear()</text>
-          <text x="435" y="218" text-anchor="middle" fill="#555577" font-family="JetBrains Mono" font-size="9">empties list</text>
-
-          <text x="560" y="202" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="10" font-weight="700">.copy()</text>
-          <text x="560" y="218" text-anchor="middle" fill="#555577" font-family="JetBrains Mono" font-size="9">shallow copy</text>
-
-          <text x="685" y="202" text-anchor="middle" fill="#38bdf8" font-family="JetBrains Mono" font-size="10" font-weight="700">.index(x)</text>
-          <text x="685" y="218" text-anchor="middle" fill="#555577" font-family="JetBrains Mono" font-size="9">find position</text>
-          <text x="685" y="232" text-anchor="middle" fill="#555577" font-family="JetBrains Mono" font-size="9">of value x</text>
-
-          <text x="800" y="202" text-anchor="middle" fill="#fb923c" font-family="JetBrains Mono" font-size="10" font-weight="700">.count(x)</text>
-          <text x="800" y="218" text-anchor="middle" fill="#555577" font-family="JetBrains Mono" font-size="9">how many x</text>
-          <text x="800" y="232" text-anchor="middle" fill="#555577" font-family="JetBrains Mono" font-size="9">in the list</text>
-        </svg>
-      </div>
+        <path d="M 160 65 L 220 100" fill="none" stroke="#7070a0" stroke-width="1.5" marker-end="url(#tk3)"/>
+        <text x="190" y="95" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="9" transform="rotate(30, 210, 95)">.remove(20)</text>
+        <rect x="230" y="90" width="140" height="30" rx="4" fill="#0a0a12" stroke="#f5c842" stroke-width="1"/>
+        <text x="300" y="110" text-anchor="middle" fill="#f5c842" font-family="JetBrains Mono" font-size="11">[10]</text>
+        
+        <text x="430" y="40" text-anchor="start" fill="#7070a0" font-family="JetBrains Mono" font-size="10">📌 Unlike strings, lists are MUTABLE.</text>
+        <text x="430" y="55" text-anchor="start" fill="#7070a0" font-family="JetBrains Mono" font-size="10">These methods modify the list IN PLACE (returns None).</text>
+      </svg>
     </div>
   </div>
+</div>
 
-  <div class="grid g2" style="margin-top:16px">
-    <div class="card gold">
-      <div class="card-title">Add & Remove Methods</div>
-      <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">heroes</span> <span class="op">=</span> [<span class="str">"Batman"</span>, <span class="str">"Flash"</span>, <span class="str">"Aquaman"</span>]
+<div class="grid g2" style="margin-top:16px">
+  <div class="card green">
+    <div class="card-title">Adding & Combining</div>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">nums</span> <span class="op">=</span> [<span class="num">1</span>, <span class="num">2</span>]
 
-<span class="cm"># ── Adding ────────────────────────────────</span>
-<span class="var">heroes</span>.<span class="fn">append</span>(<span class="str">"Superman"</span>)    <span class="cm"># adds to END</span>
-<span class="var">heroes</span>.<span class="fn">insert</span>(<span class="num">0</span>, <span class="str">"Wonder"</span>)  <span class="cm"># inserts at index 0</span>
-<span class="var">heroes</span>.<span class="fn">extend</span>([<span class="str">"Hulk"</span>, <span class="str">"Thor"</span>]) <span class="cm"># merges another list in</span>
+<span class="var">nums</span>.<span class="fn">append</span>(<span class="num">3</span>)      <span class="cm"># [1, 2, 3] (add to end)</span>
+<span class="var">nums</span>.<span class="fn">insert</span>(<span class="num">0</span>, <span class="num">0</span>)   <span class="cm"># [0, 1, 2, 3] (add at index)</span>
 
-<span class="cm"># ── Removing ──────────────────────────────</span>
-<span class="var">heroes</span>.<span class="fn">remove</span>(<span class="str">"Flash"</span>)     <span class="cm"># removes by VALUE (first match)</span>
-<span class="var">last</span> <span class="op">=</span> <span class="var">heroes</span>.<span class="fn">pop</span>()        <span class="cm"># removes + returns last item</span>
-<span class="var">first</span> <span class="op">=</span> <span class="var">heroes</span>.<span class="fn">pop</span>(<span class="num">0</span>)      <span class="cm"># removes + returns at index 0</span>
-<span class="var">heroes</span>.<span class="fn">clear</span>()              <span class="cm"># nukes the entire list → []</span>
+<span class="cm"># Combining lists</span>
+<span class="var">others</span> <span class="op">=</span> [<span class="num">4</span>, <span class="num">5</span>]
+<span class="var">nums</span>.<span class="fn">extend</span>(<span class="var">others</span>) <span class="cm"># [0, 1, 2, 3, 4, 5]</span>
+<span class="cm"># OR</span>
+<span class="var">both</span> <span class="op">=</span> <span class="var">nums</span> <span class="op">+</span> <span class="var">others</span> <span class="cm"># returns a NEW combined list</span></pre>
+  </div>
 
-<span class="cm"># ⚠️ remove() crashes if value not found!</span>
-<span class="cm"># Safe pattern: check first</span>
+  <div class="card pink">
+    <div class="card-title">Removing Items</div>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">heroes</span> <span class="op">=</span> [<span class="str">"Batman"</span>, <span class="str">"Flash"</span>, <span class="str">"Batman"</span>]
+
+<span class="var">heroes</span>.<span class="fn">remove</span>(<span class="str">"Batman"</span>) <span class="cm"># ["Flash", "Batman"] (only 1st)</span>
+<span class="var">val</span> <span class="op">=</span> <span class="var">heroes</span>.<span class="fn">pop</span>(<span class="num">1</span>)     <span class="cm"># removes and returns index 1</span>
+<span class="kw">del</span> <span class="var">heroes</span>[<span class="num">0</span>]           <span class="cm"># removes index 0 (no return)</span>
+<span class="var">heroes</span>.<span class="fn">clear</span>()          <span class="cm"># [] (empties list)</span>
+
+<span class="cm"># Safe deletion pattern</span>
 <span class="kw">if</span> <span class="str">"Flash"</span> <span class="kw">in</span> <span class="var">heroes</span>:
     <span class="var">heroes</span>.<span class="fn">remove</span>(<span class="str">"Flash"</span>)</pre>
-    </div>
+  </div>
 
-    <div class="card purple">
-      <div class="card-title">Sorting & Ordering</div>
-      <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">nums</span> <span class="op">=</span> [<span class="num">3</span>, <span class="num">1</span>, <span class="num">4</span>, <span class="num">1</span>, <span class="num">5</span>, <span class="num">9</span>]
+  <div class="card purple">
+    <div class="card-title">Sorting & Ordering</div>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">nums</span> <span class="op">=</span> [<span class="num">3</span>, <span class="num">1</span>, <span class="num">4</span>, <span class="num">1</span>, <span class="num">5</span>, <span class="num">9</span>]
 <span class="var">names</span> <span class="op">=</span> [<span class="str">"Zara"</span>, <span class="str">"Alice"</span>, <span class="str">"Bob"</span>]
 
 <span class="cm"># .sort() — modifies the list IN PLACE</span>
@@ -120,11 +81,11 @@
 <span class="cm"># 📌 Rule of thumb:</span>
 <span class="cm"># .sort()    = mutates list, returns None</span>
 <span class="cm"># sorted()   = safe, returns new list</span></pre>
-    </div>
+  </div>
 
-    <div class="card coral">
-      <div class="card-title">Searching & Info Methods</div>
-      <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">scores</span> <span class="op">=</span> [<span class="num">85</span>, <span class="num">92</span>, <span class="num">78</span>, <span class="num">92</span>, <span class="num">60</span>]
+  <div class="card coral">
+    <div class="card-title">Searching & Info Methods</div>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">scores</span> <span class="op">=</span> [<span class="num">85</span>, <span class="num">92</span>, <span class="num">78</span>, <span class="num">92</span>, <span class="num">60</span>]
 
 <span class="cm"># ── Finding ───────────────────────────────</span>
 <span class="var">scores</span>.<span class="fn">index</span>(<span class="num">92</span>)     <span class="cm"># 1 (FIRST position of 92)</span>
@@ -144,11 +105,11 @@
 <span class="var">original</span> <span class="op">=</span> [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]
 <span class="var">alias</span> <span class="op">=</span> <span class="var">original</span>          <span class="cm"># ⚠️ same object!</span>
 <span class="var">safe_copy</span> <span class="op">=</span> <span class="var">original</span>.<span class="fn">copy</span>() <span class="cm"># ✅ independent</span></pre>
-    </div>
+  </div>
 
-    <div class="card sky">
-      <div class="card-title">Comprehensions & Power Patterns</div>
-      <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="cm"># List Comprehension = create list in one line</span>
+  <div class="card sky">
+    <div class="card-title">Comprehensions & Power Patterns</div>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="cm"># List Comprehension = create list in one line</span>
 <span class="cm"># Syntax: [expression for item in iterable if condition]</span>
 
 <span class="var">nums</span> <span class="op">=</span> [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>]
@@ -168,6 +129,5 @@
 <span class="var">ages</span>  <span class="op">=</span> [<span class="num">30</span>, <span class="num">25</span>]
 <span class="kw">for</span> <span class="var">name</span>, <span class="var">age</span> <span class="kw">in</span> <span class="fn">zip</span>(<span class="var">names</span>, <span class="var">ages</span>):
     <span class="fn">print</span>(<span class="str">f"{name} is {age}"</span>)</pre>
-    </div>
   </div>
 </div>

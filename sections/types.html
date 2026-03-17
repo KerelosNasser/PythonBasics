@@ -1,81 +1,78 @@
-<div class="flow-label">Variables & The 4 Core Types</div>
-  <div class="grid g2">
-    <div class="card gold">
-      <div class="card-title">Defining Variables & Types</div>
-      <div class="visual-box">
-        <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
-          <rect x="20" y="20" width="80" height="80" rx="8" fill="#1a1500" stroke="#f5c842" stroke-width="1.5"/>
-          <text x="60" y="60" text-anchor="middle" fill="#f5c842" font-family="JetBrains Mono" font-size="20" font-weight="700">25</text>
-          <text x="60" y="85" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="10">Integer</text>
-          <text x="60" y="125" text-anchor="middle" fill="#f5c842" font-family="JetBrains Mono" font-size="11">age = 25</text>
-          
-          <rect x="115" y="20" width="80" height="80" rx="8" fill="#0d1f1c" stroke="#22d3b0" stroke-width="1.5"/>
-          <text x="155" y="60" text-anchor="middle" fill="#22d3b0" font-family="JetBrains Mono" font-size="18" font-weight="700">3.14</text>
-          <text x="155" y="85" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="10">Float</text>
-          <text x="155" y="125" text-anchor="middle" fill="#22d3b0" font-family="JetBrains Mono" font-size="11">pi = 3.14</text>
-
-          <rect x="210" y="20" width="80" height="80" rx="8" fill="#1a1020" stroke="#a78bfa" stroke-width="1.5"/>
-          <text x="250" y="60" text-anchor="middle" fill="#a78bfa" font-family="JetBrains Mono" font-size="20" font-weight="700">"A"</text>
-          <text x="250" y="85" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="10">String</text>
-          <text x="250" y="125" text-anchor="middle" fill="#a78bfa" font-family="JetBrains Mono" font-size="11">key = "A"</text>
-
-          <rect x="305" y="20" width="80" height="80" rx="8" fill="#0a200d" stroke="#4ade80" stroke-width="1.5"/>
-          <text x="345" y="60" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="14" font-weight="700">True</text>
-          <text x="345" y="85" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="10">Boolean</text>
-          <text x="345" y="125" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="11">is_ok=True</text>
-
-          <text x="200" y="165" text-anchor="middle" fill="#555577" font-family="JetBrains Mono" font-size="10">Variables are like labeled boxes that hold data.</text>
-        </svg>
-      </div>
-      <pre style="margin-top:16px"><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="cm"># Python is dynamically typed (no need to declare int/string)</span>
-<span class="var">name</span> <span class="op">=</span> <span class="str">"Alice"</span>     <span class="cm"># string (str)</span>
-<span class="var">age</span> <span class="op">=</span> <span class="num">30</span>           <span class="cm"># integer (int)</span>
-<span class="var">height</span> <span class="op">=</span> <span class="num">5.8</span>       <span class="cm"># float</span>
-<span class="var">is_student</span> <span class="op">=</span> <span class="kw">False</span> <span class="cm"># boolean (bool)</span>
-
-<span class="cm"># Check type</span>
-<span class="fn">print</span>(<span class="fn">type</span>(<span class="var">age</span>))   <span class="cm"># &lt;class 'int'&gt;</span></pre>
+<div class="flow-label">Fundamentals — Numbers & Variables</div>
+<div class="grid g2">
+  <div class="card teal">
+    <div class="card-title">Basic Data Types</div>
+    <div class="visual-box" style="margin-bottom:12px">
+      <svg viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- int -->
+        <rect x="20" y="20" width="70" height="40" rx="4" fill="#0d1f1c" stroke="#22d3b0" stroke-width="1.5"/>
+        <text x="55" y="45" text-anchor="middle" fill="#22d3b0" font-family="JetBrains Mono" font-size="12" font-weight="700">int</text>
+        <text x="55" y="80" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="10">10, -5, 0</text>
+        
+        <!-- float -->
+        <rect x="115" y="20" width="70" height="40" rx="4" fill="#0d1828" stroke="#38bdf8" stroke-width="1.5"/>
+        <text x="150" y="45" text-anchor="middle" fill="#38bdf8" font-family="JetBrains Mono" font-size="12" font-weight="700">float</text>
+        <text x="150" y="80" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="10">3.14, -0.5</text>
+        
+        <!-- str -->
+        <rect x="210" y="20" width="70" height="40" rx="4" fill="#1a1020" stroke="#a78bfa" stroke-width="1.5"/>
+        <text x="245" y="45" text-anchor="middle" fill="#a78bfa" font-family="JetBrains Mono" font-size="12" font-weight="700">str</text>
+        <text x="245" y="80" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="10">"Hello"</text>
+        
+        <!-- bool -->
+        <rect x="305" y="20" width="70" height="40" rx="4" fill="#200d0d" stroke="#ff6b6b" stroke-width="1.5"/>
+        <text x="340" y="45" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="12" font-weight="700">bool</text>
+        <text x="340" y="80" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="10">True, False</text>
+      </svg>
     </div>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">age</span> <span class="op">=</span> <span class="num">20</span>           <span class="cm"># int</span>
+<span class="var">price</span> <span class="op">=</span> <span class="num">19.99</span>     <span class="cm"># float</span>
+<span class="var">name</span> <span class="op">=</span> <span class="str">"Kero"</span>       <span class="cm"># str</span>
+<span class="var">is_pro</span> <span class="op">=</span> <span class="kw">True</span>     <span class="cm"># bool</span>
 
-    <div class="card teal">
-      <div class="card-title">Input / Output & Type Casting</div>
-      <div class="visual-box">
-        <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
-          <defs><marker id="arr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#22d3b0" stroke-width="1.5" stroke-linecap="round"/></marker></defs>
-          
-          <text x="60" y="30" text-anchor="middle" fill="#22d3b0" font-family="JetBrains Mono" font-size="12" font-weight="700">input()</text>
-          <rect x="20" y="45" width="80" height="40" rx="4" fill="#0d1f1c" stroke="#22d3b0" stroke-width="1"/>
-          <text x="60" y="70" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="12">"25"</text>
-          <text x="60" y="105" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">Always returns</text>
-          <text x="60" y="120" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">a String!</text>
+<span class="cm"># Check type of any variable:</span>
+<span class="fn">type</span>(<span class="var">age</span>)  <span class="cm"># &lt;class 'int'&gt;</span></pre>
+  </div>
+  
+  <div class="card pink">
+    <div class="card-title">Type Casting (Conversion)</div>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">Convert one type to another using constructor functions.</p>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="cm"># String to Int</span>
+<span class="var">x</span> <span class="op">=</span> <span class="fn">int</span>(<span class="str">"10"</span>)    <span class="cm"># 10</span>
 
-          <line x1="110" y1="65" x2="150" y2="65" stroke="#22d3b0" stroke-width="1.5" marker-end="url(#arr1)"/>
-          
-          <rect x="160" y="45" width="80" height="40" rx="4" fill="#1a1500" stroke="#f5c842" stroke-width="1.5" stroke-dasharray="4 2"/>
-          <text x="200" y="70" text-anchor="middle" fill="#f5c842" font-family="JetBrains Mono" font-size="12">int()</text>
-          <text x="200" y="105" text-anchor="middle" fill="#f5c842" font-family="JetBrains Mono" font-size="9">Casting converts</text>
-          <text x="200" y="120" text-anchor="middle" fill="#f5c842" font-family="JetBrains Mono" font-size="9">"25" → 25</text>
+<span class="cm"># Int to Float</span>
+<span class="var">y</span> <span class="op">=</span> <span class="fn">float</span>(<span class="num">5</span>)     <span class="cm"># 5.0</span>
 
-          <line x1="250" y1="65" x2="290" y2="65" stroke="#22d3b0" stroke-width="1.5" marker-end="url(#arr1)"/>
+<span class="cm"># Anything to String</span>
+<span class="var">z</span> <span class="op">=</span> <span class="fn">str</span>(<span class="num">3.14</span>)    <span class="cm"># "3.14"</span>
 
-          <text x="340" y="30" text-anchor="middle" fill="#a78bfa" font-family="JetBrains Mono" font-size="12" font-weight="700">print()</text>
-          <rect x="300" y="45" width="80" height="40" rx="4" fill="#1a1020" stroke="#a78bfa" stroke-width="1"/>
-          <text x="340" y="70" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="12">25</text>
-          <text x="340" y="105" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">Outputs to</text>
-          <text x="340" y="120" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">screen</text>
-        </svg>
-      </div>
-      <pre style="margin-top:16px"><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="cm"># input() always captures data as a string</span>
-<span class="var">age_str</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Enter your age: "</span>) 
+<span class="cm"># ⚠️ Be careful: int("abc") will crash!</span></pre>
+  </div>
+</div>
 
-<span class="cm"># Casting: Convert string to integer</span>
-<span class="var">age_int</span> <span class="op">=</span> <span class="fn">int</span>(<span class="var">age_str</span>)
+<div class="flow-label">Arithmetic & Console I/O</div>
+<div class="grid g2">
+  <div class="card sky">
+    <div class="card-title">Operators & Math</div>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="num">10</span> <span class="op">+</span> <span class="num">3</span>   <span class="cm"># 13 (Add)</span>
+<span class="num">10</span> <span class="op">-</span> <span class="num">3</span>   <span class="cm"># 7  (Sub)</span>
+<span class="num">10</span> <span class="op">*</span> <span class="num">3</span>   <span class="cm"># 30 (Mult)</span>
+<span class="num">10</span> <span class="op">/</span> <span class="num">3</span>   <span class="cm"># 3.33 (Div)</span>
 
-<span class="cm"># Doing it in one line</span>
-<span class="var">price</span> <span class="op">=</span> <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">"Enter price: "</span>))
+<span class="cm"># Advanced Math</span>
+<span class="num">10</span> <span class="op">//</span> <span class="num">3</span>  <span class="cm"># 3  (Floor Div - drops decimal)</span>
+<span class="num">10</span> <span class="op">%</span> <span class="num">3</span>   <span class="cm"># 1  (Modulo - remainder)</span>
+<span class="num">2</span> <span class="op">**</span> <span class="num">3</span>   <span class="cm"># 8  (Exponent - 2 to the power of 3)</span></pre>
+  </div>
 
-<span class="cm"># Output to screen</span>
-<span class="fn">print</span>(<span class="str">"You are"</span>, <span class="var">age_int</span>, <span class="str">"years old."</span>)</pre>
-    </div>
+  <div class="card gold">
+    <div class="card-title">Input & Output</div>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="cm"># Output to console</span>
+<span class="fn">print</span>(<span class="str">"Hello"</span>, <span class="num">123</span>)
+
+<span class="cm"># Get user input</span>
+<span class="cm"># ⚠️ input() ALWAYS returns a string!</span>
+<span class="var">name</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"What's your name? "</span>)
+<span class="var">age</span> <span class="op">=</span> <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter age: "</span>)) <span class="cm"># Cast to int immediately</span></pre>
   </div>
 </div>

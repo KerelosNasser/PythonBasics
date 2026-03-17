@@ -9,19 +9,26 @@
  * @param {string} id - Section id suffix (e.g. "types", "quiz")
  * @param {MouseEvent} event - Click event (passed automatically via onclick)
  */
-function switchTab(id, event) {
-  // Hide all sections
+async function switchTab(id, event) {
+  // 1. Lazy-load the section if needed
+  if (window.loadSection) {
+    await window.loadSection(id);
+  }
+
+  // 2. Hide all sections
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
 
-  // Deactivate all tab buttons
+  // 3. Deactivate all tab buttons
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
 
-  // Activate target section
-  document.getElementById(`section-${id}`).classList.add('active');
+  // 4. Activate target section
+  const target = document.getElementById(`section-${id}`);
+  if (target) target.classList.add('active');
 
-  // Activate clicked button
-  (event?.target ?? document.querySelector(`[data-tab="${id}"]`))
-    .classList.add('active');
+  // 5. Activate clicked button
+  // If event is null (manual call), find the button by data attribute
+  const btn = event?.currentTarget || document.querySelector(`[data-tab="${id}"]`);
+  if (btn) btn.classList.add('active');
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }

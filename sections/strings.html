@@ -1,56 +1,56 @@
 <div class="flow-label">String Indexing & Manipulation</div>
-  <div class="grid g1">
-    <div class="card purple">
-      <div class="card-title">How Python Views Strings (Indexing & Slicing)</div>
-      <div class="visual-box">
-        <svg viewBox="0 0 860 180" xmlns="http://www.w3.org/2000/svg">
-          <text x="430" y="30" text-anchor="middle" fill="#a78bfa" font-family="JetBrains Mono" font-size="12" font-weight="700">word = "PYTHON"</text>
-          
-          <text x="210" y="70" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="12">0</text>
-          <text x="290" y="70" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="12">1</text>
-          <text x="370" y="70" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="12">2</text>
-          <text x="450" y="70" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="12">3</text>
-          <text x="530" y="70" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="12">4</text>
-          <text x="610" y="70" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="12">5</text>
-          <text x="130" y="70" text-anchor="end" fill="#7070a0" font-family="JetBrains Mono" font-size="10">Positive Index →</text>
+<div class="grid g1">
+  <div class="card purple">
+    <div class="card-title">How Python Views Strings (Indexing & Slicing)</div>
+    <div class="visual-box">
+      <svg viewBox="0 0 860 180" xmlns="http://www.w3.org/2000/svg">
+        <text x="430" y="30" text-anchor="middle" fill="#a78bfa" font-family="JetBrains Mono" font-size="12" font-weight="700">word = "PYTHON"</text>
+        
+        <text x="210" y="70" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="12">0</text>
+        <text x="290" y="70" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="12">1</text>
+        <text x="370" y="70" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="12">2</text>
+        <text x="450" y="70" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="12">3</text>
+        <text x="530" y="70" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="12">4</text>
+        <text x="610" y="70" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="12">5</text>
+        <text x="130" y="70" text-anchor="end" fill="#7070a0" font-family="JetBrains Mono" font-size="10">Positive Index →</text>
 
-          <rect x="180" y="80" width="60" height="50" rx="4" fill="#1a1020" stroke="#a78bfa" stroke-width="2"/>
-          <text x="210" y="115" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="24" font-weight="700">P</text>
-          
-          <rect x="260" y="80" width="60" height="50" rx="4" fill="#1a1020" stroke="#a78bfa" stroke-width="2"/>
-          <text x="290" y="115" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="24" font-weight="700">Y</text>
-          
-          <rect x="340" y="80" width="60" height="50" rx="4" fill="#1a1020" stroke="#a78bfa" stroke-width="2"/>
-          <text x="370" y="115" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="24" font-weight="700">T</text>
-          
-          <rect x="420" y="80" width="60" height="50" rx="4" fill="#1a1020" stroke="#a78bfa" stroke-width="2"/>
-          <text x="450" y="115" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="24" font-weight="700">H</text>
-          
-          <rect x="500" y="80" width="60" height="50" rx="4" fill="#1a1020" stroke="#a78bfa" stroke-width="2"/>
-          <text x="530" y="115" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="24" font-weight="700">O</text>
-          
-          <rect x="580" y="80" width="60" height="50" rx="4" fill="#1a1020" stroke="#a78bfa" stroke-width="2"/>
-          <text x="610" y="115" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="24" font-weight="700">N</text>
+        <rect x="180" y="80" width="60" height="50" rx="4" fill="#1a1020" stroke="#a78bfa" stroke-width="2"/>
+        <text x="210" y="115" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="24" font-weight="700">P</text>
+        
+        <rect x="260" y="80" width="60" height="50" rx="4" fill="#1a1020" stroke="#a78bfa" stroke-width="2"/>
+        <text x="290" y="115" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="24" font-weight="700">Y</text>
+        
+        <rect x="340" y="80" width="60" height="50" rx="4" fill="#1a1020" stroke="#a78bfa" stroke-width="2"/>
+        <text x="370" y="115" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="24" font-weight="700">T</text>
+        
+        <rect x="420" y="80" width="60" height="50" rx="4" fill="#1a1020" stroke="#a78bfa" stroke-width="2"/>
+        <text x="450" y="115" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="24" font-weight="700">H</text>
+        
+        <rect x="500" y="80" width="60" height="50" rx="4" fill="#1a1020" stroke="#a78bfa" stroke-width="2"/>
+        <text x="530" y="115" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="24" font-weight="700">O</text>
+        
+        <rect x="580" y="80" width="60" height="50" rx="4" fill="#1a1020" stroke="#a78bfa" stroke-width="2"/>
+        <text x="610" y="115" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="24" font-weight="700">N</text>
 
-          <text x="210" y="150" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="12">-6</text>
-          <text x="290" y="150" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="12">-5</text>
-          <text x="370" y="150" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="12">-4</text>
-          <text x="450" y="150" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="12">-3</text>
-          <text x="530" y="150" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="12">-2</text>
-          <text x="610" y="150" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="12">-1</text>
-          <text x="130" y="150" text-anchor="end" fill="#7070a0" font-family="JetBrains Mono" font-size="10">Negative Index ←</text>
+        <text x="210" y="150" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="12">-6</text>
+        <text x="290" y="150" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="12">-5</text>
+        <text x="370" y="150" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="12">-4</text>
+        <text x="450" y="150" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="12">-3</text>
+        <text x="530" y="150" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="12">-2</text>
+        <text x="610" y="150" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="12">-1</text>
+        <text x="130" y="150" text-anchor="end" fill="#7070a0" font-family="JetBrains Mono" font-size="10">Negative Index ←</text>
 
-          <rect x="255" y="75" width="150" height="60" rx="4" fill="none" stroke="#f5c842" stroke-width="2" stroke-dasharray="4 2"/>
-          <text x="330" y="170" text-anchor="middle" fill="#f5c842" font-family="JetBrains Mono" font-size="10">word[1:4] gets "YTH"</text>
-        </svg>
-      </div>
+        <rect x="255" y="75" width="150" height="60" rx="4" fill="none" stroke="#f5c842" stroke-width="2" stroke-dasharray="4 2"/>
+        <text x="330" y="170" text-anchor="middle" fill="#f5c842" font-family="JetBrains Mono" font-size="10">word[1:4] gets "YTH"</text>
+      </svg>
     </div>
   </div>
-  
-  <div class="grid g2" style="margin-top:16px;">
-    <div class="card sky">
-      <div class="card-title">Slicing & f-Strings</div>
-      <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">word</span> <span class="op">=</span> <span class="str">"PYTHON"</span>
+</div>
+
+<div class="grid g2" style="margin-top:16px;">
+  <div class="card sky">
+    <div class="card-title">Slicing & f-Strings</div>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">word</span> <span class="op">=</span> <span class="str">"PYTHON"</span>
 
 <span class="cm"># Slicing syntax: [start:stop:step]</span>
 <span class="cm"># * stop index is NOT included!</span>
@@ -66,11 +66,11 @@
 <span class="var">name</span> <span class="op">=</span> <span class="str">"Kero"</span>
 <span class="var">age</span> <span class="op">=</span> <span class="num">20</span>
 <span class="fn">print</span>(<span class="str">f"My name is </span>{<span class="var">name</span>}<span class="str"> and I am </span>{<span class="var">age</span>}<span class="str">."</span>)</pre>
-    </div>
-    <div class="card green">
-      <div class="card-title">Essential String Methods</div>
-      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">Methods are built-in actions you can perform on objects. Strings have many!</p>
-      <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">msg</span> <span class="op">=</span> <span class="str">"  hello world  "</span>
+  </div>
+  <div class="card green">
+    <div class="card-title">Essential String Methods</div>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">Methods are built-in actions you can perform on objects. Strings have many!</p>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">msg</span> <span class="op">=</span> <span class="str">"  hello world  "</span>
 
 <span class="cm"># Cleaning & Changing Case</span>
 <span class="var">msg</span>.<span class="fn">strip</span>()     <span class="cm"># "hello world" (removes spaces)</span>
@@ -85,6 +85,5 @@
 <span class="var">csv</span> <span class="op">=</span> <span class="str">"apple,banana,cherry"</span>
 <span class="var">fruits</span> <span class="op">=</span> <span class="var">csv</span>.<span class="fn">split</span>(<span class="str">","</span>) <span class="cm"># Turns string into list</span>
 <span class="str">" - "</span>.<span class="fn">join</span>(<span class="var">fruits</span>)     <span class="cm"># "apple - banana - cherry"</span></pre>
-    </div>
   </div>
 </div>

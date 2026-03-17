@@ -198,4 +198,8 @@ function restartQuiz() {
 }
 
 /* ── Boot ────────────────────────────────────────────────── */
-renderQuiz();
+// Only run immediately if the quiz container is already in the DOM
+// Otherwise, loader.js will call this once the HTML is fetched.
+if (document.getElementById('quiz-body')) {
+  renderQuiz();
+}
