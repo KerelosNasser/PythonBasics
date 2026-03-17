@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="styles/cards.css" />
   <link rel="stylesheet" href="styles/code.css" />
   <link rel="stylesheet" href="styles/quiz.css" />
+  <link rel="stylesheet" href="styles/leaderboard.css" />
   <script src="js/loader.js"></script>
 </head>
 <body>
@@ -23,21 +24,26 @@
 
   <div class="tabs-wrap">
     <div class="tabs" id="tabs">
-      <button class="tab-btn active"  data-tab="types"     onclick="switchTab('types', event)">📝 Types &amp; I/O</button>
-      <button class="tab-btn"         data-tab="strings"   onclick="switchTab('strings', event)">🔤 Strings</button>
-      <button class="tab-btn"         data-tab="loops"     onclick="switchTab('loops', event)">🔄 Loops &amp; Logic</button>
-      <button class="tab-btn"         data-tab="data"      onclick="switchTab('data', event)">📦 Data Structures</button>
-      <button class="tab-btn"         data-tab="oop"       onclick="switchTab('oop', event)">🏗️ Functions &amp; OOP</button>
-      <button class="tab-btn"         data-tab="switch"    onclick="switchTab('switch', event)">🔀 Switch-Case</button>
-      <button class="tab-btn"         data-tab="strmethod" onclick="switchTab('strmethod', event)">🧵 String Methods</button>
-      <button class="tab-btn"         data-tab="arrmethod" onclick="switchTab('arrmethod', event)">📋 Array Methods</button>
-      <button class="tab-btn"         data-tab="tkinter"   onclick="switchTab('tkinter', event)">🖼️ Tkinter</button>
-      <button class="tab-btn"         data-tab="quiz"      onclick="switchTab('quiz', event)">🎯 Quiz</button>
+      <button class="tab-btn tab-special active" data-tab="leaderboard" onclick="switchTab('leaderboard', event)"><span>🏆 Leaderboard</span></button>
+      <button class="tab-btn"            data-tab="types"       onclick="switchTab('types', event)">📝 Types &amp; I/O</button>
+      <button class="tab-btn"            data-tab="strings"     onclick="switchTab('strings', event)">🔤 Strings</button>
+      <button class="tab-btn"            data-tab="loops"       onclick="switchTab('loops', event)">🔄 Loops &amp; Logic</button>
+      <button class="tab-btn"            data-tab="data"        onclick="switchTab('data', event)">📦 Data Structures</button>
+      <button class="tab-btn"            data-tab="oop"         onclick="switchTab('oop', event)">🏗️ Functions &amp; OOP</button>
+      <button class="tab-btn"            data-tab="switch"      onclick="switchTab('switch', event)">🔀 Switch-Case</button>
+      <button class="tab-btn"            data-tab="strmethod"   onclick="switchTab('strmethod', event)">🧵 String Methods</button>
+      <button class="tab-btn"            data-tab="arrmethod"   onclick="switchTab('arrmethod', event)">📋 Array Methods</button>
+      <button class="tab-btn"            data-tab="tkinter"     onclick="switchTab('tkinter', event)">🖼️ Tkinter</button>
+      <button class="tab-btn"            data-tab="errors"      onclick="switchTab('errors', event)">⚠️ Error Handling</button>
+      <button class="tab-btn"            data-tab="builtins"    onclick="switchTab('builtins', event)">⚡ Built-ins</button>
+      <button class="tab-btn"            data-tab="modules"     onclick="switchTab('modules', event)">🧩 Modules</button>
+      <button class="tab-btn"            data-tab="quiz"        onclick="switchTab('quiz', event)">🎯 Quiz</button>
     </div>
   </div>
 
   <!-- Content Sections (Loaded Lazily from /sections/*.html) -->
-  <section class="section active" id="section-types"></section>
+  <section class="section active" id="section-leaderboard"></section>
+  <section class="section"        id="section-types"></section>
   <section class="section"        id="section-strings"></section>
   <section class="section"        id="section-loops"></section>
   <section class="section"        id="section-data"></section>
@@ -46,12 +52,16 @@
   <section class="section"        id="section-strmethod"></section>
   <section class="section"        id="section-arrmethod"></section>
   <section class="section"        id="section-tkinter"></section>
+  <section class="section"        id="section-errors"></section>
+  <section class="section"        id="section-builtins"></section>
+  <section class="section"        id="section-modules"></section>
   <section class="section"        id="section-quiz"></section>
 
 </div>
 
   <script src="js/tabs.js"></script>
   <script src="js/copy.js"></script>
+  <script src="js/leaderboard.js"></script>
   <script src="js/quiz.js"></script>
 </body>
 </html>

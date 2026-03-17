@@ -1,0 +1,90 @@
+<div class="flow-label">Built-in Superpowers — Python's Swiss Army Knife</div>
+<div class="grid g1">
+  <div class="card sky">
+    <div class="card-title">The Essential Catalog</div>
+    <div class="visual-box">
+      <svg viewBox="0 0 860 220" xmlns="http://www.w3.org/2000/svg">
+        <!-- len -->
+        <rect x="20" y="20" width="120" height="80" rx="8" fill="#0d1828" stroke="#38bdf8" stroke-width="2"/>
+        <text x="80" y="55" text-anchor="middle" fill="#38bdf8" font-family="JetBrains Mono" font-size="16" font-weight="700">len()</text>
+        <text x="80" y="80" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">Get Size / Count</text>
+
+        <!-- sum -->
+        <rect x="160" y="20" width="120" height="80" rx="8" fill="#0a200d" stroke="#4ade80" stroke-width="2"/>
+        <text x="220" y="55" text-anchor="middle" fill="#4ade80" font-family="JetBrains Mono" font-size="16" font-weight="700">sum()</text>
+        <text x="220" y="80" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">Add numbers together</text>
+
+        <!-- min/max -->
+        <rect x="300" y="20" width="120" height="80" rx="8" fill="#200d0d" stroke="#ff6b6b" stroke-width="2"/>
+        <text x="360" y="50" text-anchor="middle" fill="#ff6b6b" font-family="JetBrains Mono" font-size="14" font-weight="700">min/max</text>
+        <text x="360" y="80" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">Smallest / Largest</text>
+
+        <!-- enumerate -->
+        <rect x="440" y="20" width="180" height="80" rx="8" fill="#1a1500" stroke="#f5c842" stroke-width="2"/>
+        <text x="530" y="55" text-anchor="middle" fill="#f5c842" font-family="JetBrains Mono" font-size="16" font-weight="700">enumerate()</text>
+        <text x="530" y="80" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">Item + Index together</text>
+
+        <!-- zip -->
+        <rect x="640" y="20" width="120" height="80" rx="8" fill="#1a1020" stroke="#a78bfa" stroke-width="2"/>
+        <text x="700" y="55" text-anchor="middle" fill="#a78bfa" font-family="JetBrains Mono" font-size="16" font-weight="700">zip()</text>
+        <text x="700" y="80" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="9">Join 2 lists into pairs</text>
+
+        <!-- Bottom row logic -->
+        <line x1="20" y1="120" x2="840" y2="120" stroke="#252535" stroke-width="1"/>
+        <text x="430" y="150" text-anchor="middle" fill="#eee" font-family="JetBrains Mono" font-size="12">These functions are always available without any imports.</text>
+        <text x="430" y="175" text-anchor="middle" fill="#7070a0" font-family="JetBrains Mono" font-size="10">They save time and make code readable.</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="grid g2" style="margin-top:16px">
+  <div class="card teal">
+    <div class="card-title">Measuring & Math</div>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">nums</span> <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>]
+
+<span class="fn">len</span>(<span class="var">nums</span>)  <span class="cm"># 3</span>
+<span class="fn">sum</span>(<span class="var">nums</span>)  <span class="cm"># 60</span>
+<span class="fn">min</span>(<span class="var">nums</span>)  <span class="cm"># 10</span>
+<span class="fn">max</span>(<span class="var">nums</span>)  <span class="cm"># 30</span>
+
+<span class="fn">sorted</span>([<span class="num">3</span>, <span class="num">1</span>, <span class="num">2</span>]) <span class="cm"># [1, 2, 3]</span></pre>
+  </div>
+
+  <div class="card purple">
+    <div class="card-title">The "Enumerate" Trick</div>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">Use when you need the index AND the item in a loop.</p>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">names</span> <span class="op">=</span> [<span class="str">"Kero"</span>, <span class="str">"Mina"</span>, <span class="str">"Peter"</span>]
+
+<span class="kw">for</span> <span class="var">i</span>, <span class="var">name</span> <span class="kw">in</span> <span class="fn">enumerate</span>(<span class="var">names</span>):
+    <span class="fn">print</span>(<span class="str">f"</span>{<span class="var">i</span>}<span class="str">: </span>{<span class="var">name</span>}<span class="str">"</span>)
+
+<span class="cm"># Output:</span>
+<span class="cm"># 0: Kero</span>
+<span class="cm"># 1: Mina</span>
+<span class="cm"># ...</span></pre>
+  </div>
+
+  <div class="card coral">
+    <div class="card-title">The "Zip" Trick</div>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">Loop through two lists at the same time.</p>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">users</span> <span class="op">=</span> [<span class="str">"Alice"</span>, <span class="str">"Bob"</span>]
+<span class="var">levels</span> <span class="op">=</span> [<span class="num">5</span>, <span class="num">12</span>]
+
+<span class="kw">for</span> <span class="var">user</span>, <span class="var">lvl</span> <span class="kw">in</span> <span class="fn">zip</span>(<span class="var">users</span>, <span class="var">levels</span>):
+    <span class="fn">print</span>(<span class="str">f"</span>{<span class="var">user</span>}<span class="str"> is level </span>{<span class="var">lvl</span>}<span class="str">"</span>)</pre>
+  </div>
+
+  <div class="card gold">
+    <div class="card-title">Input & Type Casting</div>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="cm"># Get absolute value (removes negative)</span>
+<span class="fn">abs</span>(<span class="op">-</span><span class="num">10</span>)    <span class="cm"># 10</span>
+
+<span class="cm"># Round to nearest integer</span>
+<span class="fn">round</span>(<span class="num">3.1415</span>, <span class="num">2</span>) <span class="cm"># 3.14</span>
+
+<span class="cm"># Check if things are true</span>
+<span class="fn">any</span>([<span class="kw">False</span>, <span class="kw">True</span>]) <span class="cm"># True (any one)</span>
+<span class="fn">all</span>([<span class="kw">True</span>, <span class="kw">True</span>])  <span class="cm"># True (all of them)</span></pre>
+  </div>
+</div>

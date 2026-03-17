@@ -30,7 +30,10 @@ async function loadSection(id) {
     }
     
     // Dispatch event if other scripts need to know a section loaded
-    container.dispatchEvent(new CustomEvent('sectionLoaded', { detail: { id } }));
+    container.dispatchEvent(new CustomEvent('sectionLoaded', { 
+      detail: { id },
+      bubbles: true 
+    }));
 
   } catch (err) {
     console.error(`[Loader] Failed to load ${id}:`, err);

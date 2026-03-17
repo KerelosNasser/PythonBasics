@@ -54,10 +54,33 @@ header p {
 
 .tabs {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  justify-content: center;
-  padding: 0 16px;
+  flex-wrap: nowrap;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 4px 16px 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom Premium Scrollbar for Tabs */
+.tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.tabs::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+}
+
+.tabs::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, var(--teal), var(--sky));
+  border-radius: 10px;
+}
+
+.tabs {
+  -ms-overflow-style: auto;  /* IE and Edge */
+  scrollbar-width: thin;    /* Firefox */
+  scrollbar-color: var(--teal) transparent; /* Firefox */
 }
 
 .tab-btn {
@@ -73,6 +96,7 @@ header p {
   transition: all 0.18s;
   letter-spacing: 0.3px;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .tab-btn:hover {

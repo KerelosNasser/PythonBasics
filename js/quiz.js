@@ -107,6 +107,24 @@ const questions = [
     ans: 2,
     exp: "The underscore _ is the wildcard pattern in Python's match statement. It acts like 'else' — it matches anything that didn't match any previous case.",
   },
+  {
+    q: "Which block of a `try` statement ALWAYS runs, regardless of whether an error occurred?",
+    opts: ["except", "else", "finally", "catch"],
+    ans: 2,
+    exp: "The `finally` block is guaranteed to run. It's normally used for cleanup, like closing files or database connections.",
+  },
+  {
+    q: "How can you loop through a list and get both the index and the value at the same time?",
+    opts: ["for i, val in list:", "for i, val in enumerate(list):", "for i, val in range(list):", "for i, val in counts(list):"],
+    ans: 1,
+    exp: "enumerate() is the 'Pythonic' way to get (index, value) pairs during iteration.",
+  },
+  {
+    q: "How do you install a third-party library 'requests' in Python?",
+    opts: ["import install requests", "python get requests", "pip install requests", "requests --add"],
+    ans: 2,
+    exp: "PIP is the standard Package Installer for Python. You use it in your terminal/command prompt.",
+  },
 ];
 
 /* ── State ───────────────────────────────────────────────── */
