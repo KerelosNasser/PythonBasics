@@ -1,29 +1,15 @@
-/* ============================================================
-   leaderboard.js — Data and Rendering for Ranking
-   ============================================================ */
-
-/**
- * Data for students.
- * 'name' is student name
- * 'points' is their total score
- * 'badge' is a special label (e.g., "PRO", "MVP", "NEW")
- * 'badgeColor' handles the background for that badge
- */
 const students = [
-  { name: "Gelan", points: 10, badge: "Newbie", badgeColor: "#92015dff" },
-  { name: "Jomana", points: 10, badge: "Oracle", badgeColor: "#8a2525ff" },
-  { name: "Meriam", points: 10, badge: "Master", badgeColor: "#0aa99eff" },
-  { name: "Monica", points: 10, badge: "Pro", badgeColor: "#745cfcff" },
-  { name: "Merolla", points: 10, badge: "Ones to watch", badgeColor: "#e164a0ff" },
-  { name: "Peter", points: 0, badge: "Alchemist", badgeColor: "#4ade80" },
-  { name: "George", points: 0, badge: "Grinder", badgeColor: "#f5c842" },
-  { name: "Lilian", points: 0, badge: "Thinker", badgeColor: "#fb923c" },
-  { name: "Youssef", points: -5, badge: "Active", badgeColor: "#ff6b6b" },
-  { name: "Selvana", points: -99, badge: "Ghost", badgeColor: "#7070a0" },
+  { name: "Lilian", points: 90, badge: "Thinker", badgeColor: "#fb923c" },
+  { name: "Gelan", points: 90, badge: "Newbie", badgeColor: "#92015dff" },
+  { name: "Jomana", points: 0, badge: "Oracle", badgeColor: "#8a2525ff" },
+  { name: "Meriam", points: 70, badge: "Master", badgeColor: "#0aa99eff" },
+  { name: "Monica", points: 0, badge: "Pro", badgeColor: "#745cfcff" },
+  { name: "Merolla", points: 120, badge: "Ones to watch", badgeColor: "#e164a0ff" },
+  { name: "Peter", points: -10, badge: "Alchemist", badgeColor: "#4ade80" },
+  { name: "George", points: 80, badge: "Grinder", badgeColor: "#f5c842" },
+  { name: "Youssef", points: 30, badge: "Active", badgeColor: "#ff6b6b" },
+  { name: "Selvana", points: -999, badge: "Ghost", badgeColor: "#7070a0" },
 ];
-
-/** * Renders the students into the leaderboard list.
- */
 function renderLeaderboard() {
   const list = document.getElementById("leaderboard-list");
   if (!list) return;
