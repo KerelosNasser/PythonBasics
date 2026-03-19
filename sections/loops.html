@@ -159,10 +159,21 @@
     <span class="var">x</span> <span class="op">+=</span> <span class="num">1</span>  <span class="cm"># MUST update condition to avoid infinite loop!</span>
 
 <span class="cm"># DO-WHILE SIMULATION (Python has no native do-while)</span>
-<span class="cm"># Runs AT LEAST once, then checks condition.</span>
 <span class="kw">while True</span>:
     <span class="var">cmd</span> <span class="op">=</span> <span class="fn">input</span>(<span class="str">"Type 'quit' to exit: "</span>)
     <span class="kw">if</span> <span class="var">cmd</span> <span class="op">==</span> <span class="str">"quit"</span>:
-        <span class="kw">break</span>  <span class="cm"># break immediately stops the loop</span></pre>
+        <span class="kw">break</span></pre>
+  </div>
+
+  <div class="card purple">
+    <div class="card-title">Generators & the `yield` Keyword</div>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">`yield` pauses a function, saves its state, and returns a value. It's memory-efficient for large data.</p>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="kw">def</span> <span class="fn">countdown</span>(<span class="var">n</span>):
+    <span class="kw">while</span> <span class="var">n</span> <span class="op">></span> <span class="num">0</span>:
+        <span class="kw">yield</span> <span class="var">n</span>  <span class="cm"># Pauses here and returns n</span>
+        <span class="var">n</span> <span class="op">-=</span> <span class="num">1</span>
+
+<span class="kw">for</span> <span class="var">num</span> <span class="kw">in</span> <span class="fn">countdown</span>(<span class="num">3</span>):
+    <span class="fn">print</span>(<span class="var">num</span>)  <span class="cm"># Output: 3, 2, 1</span></pre>
   </div>
 </div>

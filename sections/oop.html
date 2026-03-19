@@ -47,14 +47,22 @@
 
 <span class="cm"># Calling the function</span>
 <span class="var">result1</span> <span class="op">=</span> <span class="fn">calculate_area</span>(<span class="num">5</span>, <span class="num">10</span>)  <span class="cm"># 50</span>
-<span class="var">result2</span> <span class="op">=</span> <span class="fn">calculate_area</span>(<span class="num">7</span>, <span class="num">3</span>)   <span class="cm"># 21</span>
 
-<span class="cm"># Default parameters (if user doesn't provide one)</span>
+<span class="cm"># Default parameters</span>
 <span class="kw">def</span> <span class="fn">greet</span>(<span class="var">name</span><span class="op">=</span><span class="str">"Guest"</span>):
-    <span class="fn">print</span>(<span class="str">f"Hello </span>{<span class="var">name</span>}<span class="str">!"</span>)
+    <span class="fn">print</span>(<span class="str">f"Hello </span>{<span class="var">name</span>}<span class="str">!"</span>)</pre>
+  </div>
 
-<span class="fn">greet</span>()          <span class="cm"># "Hello Guest!"</span>
-<span class="fn">greet</span>(<span class="str">"Kero"</span>)    <span class="cm"># "Hello Kero!"</span></pre>
+  <div class="card sky">
+    <div class="card-title">Lambda Functions (Anonymous)</div>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">Simple, one-line functions without a name. Used for quick operations.</p>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="cm"># lambda arguments : expression</span>
+<span class="var">square</span> <span class="op">=</span> <span class="kw">lambda</span> <span class="var">x</span>: <span class="var">x</span> <span class="op">*</span> <span class="var">x</span>
+<span class="fn">print</span>(<span class="var">square</span>(<span class="num">5</span>))  <span class="cm"># 25</span>
+
+<span class="cm"># Sort by the 2nd value in tuples</span>
+<span class="var">pts</span> <span class="op">=</span> [(<span class="str">"A"</span>, <span class="num">10</span>), (<span class="str">"B"</span>, <span class="num">5</span>)]
+<span class="var">sorted_pts</span> <span class="op">=</span> <span class="fn">sorted</span>(<span class="var">pts</span>, <span class="var">key</span><span class="op">=</span><span class="kw">lambda</span> <span class="var">p</span>: <span class="var">p</span>[<span class="num">1</span>])</pre>
   </div>
 
   <div class="card pink">

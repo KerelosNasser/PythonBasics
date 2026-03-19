@@ -66,13 +66,17 @@
   </div>
 
   <div class="card coral">
-    <div class="card-title">The "Zip" Trick</div>
-    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">Loop through two lists at the same time.</p>
-    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">users</span> <span class="op">=</span> [<span class="str">"Alice"</span>, <span class="str">"Bob"</span>]
-<span class="var">levels</span> <span class="op">=</span> [<span class="num">5</span>, <span class="num">12</span>]
+    <div class="card-title">The "Zip" Trick — Combine Lists</div>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">Pairs up items from multiple lists into a single iterator. Perfect for parallel loops.</p>
+    <pre><button class="copy-btn" onclick="cpCode(this)">copy</button><span class="var">names</span> <span class="op">=</span> [<span class="str">"Alice"</span>, <span class="str">"Bob"</span>]
+<span class="var">scores</span> <span class="op">=</span> [<span class="num">85</span>, <span class="num">92</span>]
 
-<span class="kw">for</span> <span class="var">user</span>, <span class="var">lvl</span> <span class="kw">in</span> <span class="fn">zip</span>(<span class="var">users</span>, <span class="var">levels</span>):
-    <span class="fn">print</span>(<span class="str">f"</span>{<span class="var">user</span>}<span class="str"> is level </span>{<span class="var">lvl</span>}<span class="str">"</span>)</pre>
+<span class="cm"># zip() creates pairs: ("Alice", 85), ("Bob", 92)</span>
+<span class="kw">for</span> <span class="var">name</span>, <span class="var">score</span> <span class="kw">in</span> <span class="fn">zip</span>(<span class="var">names</span>, <span class="var">scores</span>):
+    <span class="fn">print</span>(<span class="str">f"</span>{<span class="var">name</span>}<span class="str"> scored </span>{<span class="var">score</span>}<span class="str">"</span>)
+
+<span class="cm"># Convert to a dictionary instantly!</span>
+<span class="var">user_map</span> <span class="op">=</span> <span class="fn">dict</span>(<span class="fn">zip</span>(<span class="var">names</span>, <span class="var">scores</span>))</pre>
   </div>
 
   <div class="card gold">
