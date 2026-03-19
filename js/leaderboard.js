@@ -1,14 +1,14 @@
 const students = [
   { name: "Lilian", points: 90, badge: "Thinker", badgeColor: "#fb923c" },
   { name: "Gelan", points: 90, badge: "Newbie", badgeColor: "#92015dff" },
-  { name: "Jomana", points: 0, badge: "Oracle", badgeColor: "#8a2525ff" },
-  { name: "Meriam", points: 70, badge: "Master", badgeColor: "#0aa99eff" },
-  { name: "Monica", points: 0, badge: "Pro", badgeColor: "#745cfcff" },
+  { name: "Jomana", points: 0, badge: "???", badgeColor: "#8a2525ff" },
+  { name: "Meriam", points: 80, badge: "Master", badgeColor: "#0aa99eff" },
+  { name: "Monica", points: 0, badge: "???", badgeColor: "#745cfcff" },
   { name: "Merolla", points: 120, badge: "OTW", badgeColor: "#e164a0ff" },
   { name: "Peter", points: -10, badge: "Alchemist", badgeColor: "#4ade80" },
   { name: "George", points: 80, badge: "Grinder", badgeColor: "#f5c842" },
   { name: "Youssef", points: 30, badge: "Active", badgeColor: "#ff6b6b" },
-  { name: "Selvana", points: -999, badge: "Ghost", badgeColor: "#7070a0" },
+  { name: "Selvana", points: -999, badge: "???", badgeColor: "#7070a0" },
 ];
 function renderLeaderboard() {
   const list = document.getElementById("leaderboard-list");
