@@ -25,8 +25,8 @@ async function loadSection(id) {
 
     // Special case: Quiz engine boot
     // If we just loaded the quiz container, we need to tell the quiz engine to render
-    if (id === 'quiz' && typeof renderQuiz === 'function') {
-      renderQuiz();
+    if (id === 'quiz' && typeof initQuizEngine === 'function') {
+      initQuizEngine();
     }
     
     // Dispatch event if other scripts need to know a section loaded

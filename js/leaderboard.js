@@ -5,8 +5,8 @@ const students = [
   { name: "Meriam", points: 80, badge: "Master", badgeColor: "#0aa99eff" },
   { name: "Monica", points: 0, badge: "???", badgeColor: "#745cfcff" },
   { name: "Merolla", points: 120, badge: "OTW", badgeColor: "#e164a0ff" },
-  { name: "Peter", points: -10, badge: "Alchemist", badgeColor: "#4ade80" },
-  { name: "George", points: 80, badge: "Grinder", badgeColor: "#f5c842" },
+  { name: "Peter", points: 0, badge: "Alchemist", badgeColor: "#4ade80" },
+  { name: "George", points: 60, badge: "Grinder", badgeColor: "#f5c842" },
   { name: "Youssef", points: 30, badge: "Active", badgeColor: "#ff6b6b" },
   { name: "Selvana", points: -999, badge: "???", badgeColor: "#7070a0" },
 ];

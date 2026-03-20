@@ -1,223 +1,207 @@
 /* ============================================================
-   quiz.js — Interactive quiz engine
+   quiz.js — Categorized interactive quiz engine
    ============================================================ */
 
-const questions = [
-  {
-    q: "What is the output of `type(3.14)`?",
-    opts: ["<class 'int'>", "<class 'float'>", "<class 'str'>", "<class 'bool'>"],
-    ans: 1,
-    exp: "Decimals are stored as floats in Python.",
-  },
-  {
-    q: "How do you get the last item of a list `arr`?",
-    opts: ["arr[last]", "arr.get(-1)", "arr[-1]", "arr[len(arr)]"],
-    ans: 2,
-    exp: "Negative indexing starts from the back. -1 is the last item, -2 is second to last.",
-  },
-  {
-    q: "Which of these data structures is Immutable (cannot be changed after creation)?",
-    opts: ["List []", "Dictionary {}", "Set {}", "Tuple ()"],
-    ans: 3,
-    exp: "Tuples () are locked. Once created, you cannot append or remove items from them.",
-  },
-  {
-    q: "If `x = 10` and `y = '10'`, what happens when you try `x + y`?",
-    opts: ["20", "'1010'", "TypeError", "0"],
-    ans: 2,
-    exp: "Python prevents adding an integer to a string directly. You must cast first: x + int(y) or str(x) + y.",
-  },
-  {
-    q: "What does `for i in range(2):` print if we `print(i)` inside?",
-    opts: ["1, 2", "0, 1", "0, 1, 2", "2, 2"],
-    ans: 1,
-    exp: "range(2) generates numbers starting from 0, and stops BEFORE 2. So it outputs 0, 1.",
-  },
-  {
-    q: "How do you simulate a 'do-while' loop in Python?",
-    opts: [
-      "Use the do_while keyword",
-      "Use 'while True:' and a 'break' statement inside",
-      "Use a for loop backwards",
-      "It is impossible",
-    ],
-    ans: 1,
-    exp: "Since Python lacks native do-while, the standard pattern is `while True:` to guarantee at least one execution, breaking out when a condition is met.",
-  },
-  {
-    q: "What is the primary purpose of the `self` keyword in a class method?",
-    opts: [
-      "It is the name of the class",
-      "It refers to the specific instance (object) calling the method",
-      "It makes the method private",
-      "It imports the module",
-    ],
-    ans: 1,
-    exp: "`self` ensures that when object A calls a method, the method modifies object A's variables, not object B's.",
-  },
-  {
-    q: "How do you safely get a value from a dictionary `d` to avoid crashing if the key doesn't exist?",
-    opts: ["d['key']", "d.find('key')", "d.get('key', 'default')", "d.search('key')"],
-    ans: 2,
-    exp: ".get() is safe! If the key is missing, it returns the default value (or None) instead of throwing a KeyError.",
-  },
-  {
-    q: "What Python version introduced the `match` statement?",
-    opts: ["Python 3.8", "Python 3.9", "Python 3.10", "Python 3.12"],
-    ans: 2,
-    exp: "The match-case statement (structural pattern matching) was introduced in Python 3.10 via PEP 634.",
-  },
-  {
-    q: "What does `'hello'.find('xyz')` return if 'xyz' is not found?",
-    opts: ["None", "ValueError", "False", "-1"],
-    ans: 3,
-    exp: ".find() safely returns -1 when the substring isn't found. Use it instead of .index() to avoid crashes.",
-  },
-  {
-    q: "What is the difference between `.sort()` and `sorted()`?",
-    opts: [
-      "No difference",
-      ".sort() returns a new list; sorted() modifies in place",
-      ".sort() modifies list in place; sorted() returns a new list",
-      "sorted() only works on numbers",
-    ],
-    ans: 2,
-    exp: ".sort() mutates the original list and returns None. sorted() leaves the original untouched and returns a brand new sorted list.",
-  },
-  {
-    q: "In Tkinter, which method do you call LAST to keep the window open?",
-    opts: ["root.open()", "root.start()", "root.run()", "root.mainloop()"],
-    ans: 3,
-    exp: "root.mainloop() starts the Tkinter event loop. It blocks until the window is closed, listening for clicks, keypresses, and other events.",
-  },
-  {
-    q: "What does `'abc'.upper().replace('A','@')` return?",
-    opts: ["'@BC'", "'abc'", "'ABC'", "TypeError"],
-    ans: 0,
-    exp: "Methods chain left to right. First .upper() converts to 'ABC', then .replace('A','@') produces '@BC'.",
-  },
-  {
-    q: "In a `match` statement, what does `case _:` represent?",
-    opts: [
-      "Match the underscore character",
-      "A syntax error",
-      "The default wildcard (catch-all)",
-      "Match any integer",
-    ],
-    ans: 2,
-    exp: "The underscore _ is the wildcard pattern in Python's match statement. It acts like 'else' — it matches anything that didn't match any previous case.",
-  },
-  {
-    q: "Which block of a `try` statement ALWAYS runs, regardless of whether an error occurred?",
-    opts: ["except", "else", "finally", "catch"],
-    ans: 2,
-    exp: "The `finally` block is guaranteed to run. It's normally used for cleanup, like closing files or database connections.",
-  },
-  {
-    q: "How can you loop through a list and get both the index and the value at the same time?",
-    opts: ["for i, val in list:", "for i, val in enumerate(list):", "for i, val in range(list):", "for i, val in counts(list):"],
-    ans: 1,
-    exp: "enumerate() is the 'Pythonic' way to get (index, value) pairs during iteration.",
-  },
-  {
-    q: "How do you install a third-party library 'requests' in Python?",
-    opts: ["import install requests", "python get requests", "pip install requests", "requests --add"],
-    ans: 2,
-    exp: "PIP is the standard Package Installer for Python. You use it in your terminal/command prompt.",
-  },
-];
+let quizData = { categories: [] };
+let currentQuestions = [];
+let currentIndex = 0;
+let currentScore = 0;
+let currentCategoryId = '';
+let isAnswered = false;
 
-/* ── State ───────────────────────────────────────────────── */
-let current  = 0;
-let score    = 0;
-let answered = false;
+/**
+ * Boot: Fetch quizzes and render selection grid
+ */
+async function initQuizEngine() {
+  try {
+    const response = await fetch('js/quizzes.json');
+    quizData = await response.json();
+    renderCategorySelection();
+  } catch (error) {
+    console.error('Error loading quizzes:', error);
+    const grid = document.getElementById('category-grid');
+    if (grid) {
+      grid.innerHTML = `<p class="error">Failed to load quizzes. Please try refreshing.</p>`;
+    }
+  }
+}
 
-/* ── Render current question ─────────────────────────────── */
+/**
+ * Renders the "NotebookLM style" category tiles
+ */
+function renderCategorySelection() {
+  const grid = document.getElementById('category-grid');
+  if (!grid) return;
+
+  grid.innerHTML = quizData.categories
+    .map(cat => `
+      <div class="category-card" onclick="startQuiz('${cat.id}')">
+        <div class="category-icon">${cat.icon}</div>
+        <div class="category-title">${cat.title}</div>
+        <div class="category-desc">${cat.description}</div>
+        <div class="category-q-count">${cat.questions.length} Questions</div>
+      </div>
+    `)
+    .join('');
+  
+  document.getElementById('category-selection').style.display = 'block';
+  document.getElementById('active-quiz').style.display = 'none';
+}
+
+/**
+ * Transitions to the active quiz view
+ */
+function startQuiz(categoryId) {
+  const category = quizData.categories.find(c => c.id === categoryId);
+  if (!category) return;
+
+  const countSelect = document.getElementById('q-count-select');
+  const selectedCount = countSelect ? countSelect.value : '10';
+
+  currentCategoryId = categoryId;
+  
+  // Randomize and slice
+  let allQs = [...category.questions];
+  shuffleArray(allQs);
+
+  if (selectedCount === 'all') {
+    currentQuestions = allQs;
+  } else {
+    currentQuestions = allQs.slice(0, parseInt(selectedCount));
+  }
+
+  currentIndex = 0;
+  currentScore = 0;
+  isAnswered = false;
+
+  document.getElementById('current-category-title').textContent = category.title;
+  document.getElementById('category-selection').style.display = 'none';
+  document.getElementById('active-quiz').style.display = 'block';
+
+  renderQuiz();
+}
+
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+/**
+ * Toggles back to selection view
+ */
+function showCategories() {
+  renderCategorySelection();
+}
+
+/**
+ * Renders the current question and options
+ */
 function renderQuiz() {
-  const q   = questions[current];
-  const pct = (current / questions.length) * 100;
+  const q = currentQuestions[currentIndex];
+  const pct = (currentIndex / currentQuestions.length) * 100;
 
   document.getElementById('qprogress').style.width = `${pct}%`;
   document.getElementById('qscore').textContent =
-    `Question ${current + 1} of ${questions.length} • Score: ${score}`;
+    `Question ${currentIndex + 1} of ${currentQuestions.length} • Score: ${currentScore}`;
 
-  const escapedOpts = q.opts
-    .map((o, i) => `
-      <button class="quiz-opt" onclick="answer(${i})">
-        ${o.replace(/</g, '&lt;').replace(/>/g, '&gt;')}
+  const optionsHtml = q.opts
+    .map((opt, i) => `
+      <button class="quiz-opt" onclick="handleAnswer(${i})">
+        ${opt.replace(/</g, '&lt;').replace(/>/g, '&gt;')}
       </button>`)
     .join('');
 
   document.getElementById('quiz-body').innerHTML = `
     <div class="quiz-q">${q.q}</div>
-    <div class="quiz-options">${escapedOpts}</div>
+    <div class="quiz-options">${optionsHtml}</div>
     <div class="quiz-feedback" id="qfb">${q.exp}</div>
     <div class="quiz-nav">
       <span></span>
-      <button class="quiz-nav-btn" id="qnext" onclick="nextQ()" style="display:none">
-        ${current < questions.length - 1 ? 'Next →' : 'See Result'}
+      <button class="quiz-nav-btn" id="qnext" onclick="handleNext()" style="display:none">
+        ${currentIndex < currentQuestions.length - 1 ? 'Next →' : 'See Results'}
       </button>
     </div>`;
 
-  answered = false;
+  isAnswered = false;
 }
 
-/* ── Handle answer selection ─────────────────────────────── */
-function answer(i) {
-  if (answered) return;
-  answered = true;
+/**
+ * Processes an answer selection
+ */
+function handleAnswer(index) {
+  if (isAnswered) return;
+  isAnswered = true;
 
-  const q    = questions[current];
-  const opts = document.querySelectorAll('.quiz-opt');
+  const q = currentQuestions[currentIndex];
+  const buttons = document.querySelectorAll('.quiz-opt');
 
-  opts[q.ans].classList.add('correct');
-  if (i !== q.ans) opts[i].classList.add('wrong');
-  else score++;
+  buttons[q.ans].classList.add('correct');
+  if (index !== q.ans) {
+    buttons[index].classList.add('wrong');
+  } else {
+    currentScore++;
+  }
 
-  opts.forEach(o => (o.disabled = true));
+  buttons.forEach(btn => (btn.disabled = true));
   document.getElementById('qfb').classList.add('show');
   document.getElementById('qnext').style.display = 'block';
   document.getElementById('qscore').textContent =
-    `Question ${current + 1} of ${questions.length} • Score: ${score}`;
+    `Question ${currentIndex + 1} of ${currentQuestions.length} • Score: ${currentScore}`;
 }
 
-/* ── Advance to next question ────────────────────────────── */
-function nextQ() {
-  current++;
+/**
+ * Advances to the next question or shows results
+ */
+function handleNext() {
+  currentIndex++;
 
-  if (current >= questions.length) {
-    const pct = Math.round((score / questions.length) * 100);
-    document.getElementById('qprogress').style.width = '100%';
-    document.getElementById('qscore').textContent = `Final score: ${score}/${questions.length}`;
-    document.getElementById('quiz-body').innerHTML = `
-      <div style="text-align:center;padding:40px 0">
-        <div style="font-size:3rem;margin-bottom:12px">
-          ${pct >= 80 ? '🏆' : pct >= 60 ? '🎯' : '📚'}
-        </div>
-        <div style="font-size:1.5rem;font-weight:800;margin-bottom:8px;color:var(--teal)">
-          ${score}/${questions.length} — ${pct}%
-        </div>
-        <div style="color:var(--muted);margin-bottom:24px">
-          ${pct >= 80 ? 'Fundamentals mastered! 🔥' : pct >= 60 ? 'Solid progress! 💪' : 'Keep studying! 📖'}
-        </div>
-        <button class="quiz-nav-btn" onclick="restartQuiz()">Restart Quiz</button>
-      </div>`;
+  if (currentIndex >= currentQuestions.length) {
+    showResults();
     return;
   }
 
   renderQuiz();
 }
 
-/* ── Restart ─────────────────────────────────────────────── */
-function restartQuiz() {
-  current = 0;
-  score   = 0;
-  renderQuiz();
+/**
+ * Renders the final result screen
+ */
+function showResults() {
+  const pct = Math.round((currentScore / currentQuestions.length) * 100);
+  document.getElementById('qprogress').style.width = '100%';
+  document.getElementById('qscore').textContent = `Final score: ${currentScore}/${currentQuestions.length}`;
+
+  const resultMarkup = `
+    <div class="quiz-result-card">
+      <div class="result-icon">
+        ${pct >= 80 ? '🏆' : pct >= 60 ? '🎯' : '📚'}
+      </div>
+      <div class="result-score">
+        ${currentScore}/${currentQuestions.length} — ${pct}%
+      </div>
+      <div class="result-msg">
+        ${pct >= 80 ? 'Exceptional! Fundamentals mastered. 🔥' : pct >= 60 ? 'Great progress! Keep at it. 💪' : 'Keep studying to level up your skills! 📖'}
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center">
+        <button class="quiz-nav-btn" onclick="startQuiz('${currentCategoryId}')">Try Again</button>
+        <button class="back-btn" onclick="showCategories()">Main Categories</button>
+      </div>
+    </div>`;
+
+  document.getElementById('quiz-body').innerHTML = resultMarkup;
 }
 
-/* ── Boot ────────────────────────────────────────────────── */
-// Only run immediately if the quiz container is already in the DOM
-// Otherwise, loader.js will call this once the HTML is fetched.
-if (document.getElementById('quiz-body')) {
-  renderQuiz();
+/**
+ * Restarts the current quiz
+ */
+function restartQuiz() {
+  startQuiz(currentCategoryId);
+}
+
+// Initial Boot
+if (document.getElementById('category-grid')) {
+  initQuizEngine();
 }

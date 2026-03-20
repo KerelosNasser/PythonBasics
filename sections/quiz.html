@@ -1,5 +1,37 @@
-<div class="quiz-card">
-  <div class="progress-bar"><div class="progress-fill" id="qprogress" style="width:0%"></div></div>
-  <div class="quiz-score" id="qscore">Question 1 of 14 • Score: 0</div>
-  <div id="quiz-body"></div>
+<div class="quiz-container">
+  <!-- Category Selection View -->
+  <div id="category-selection" class="quiz-view">
+    <div class="quiz-intro">
+      <h1>Knowledge Check</h1>
+      <p>Select a category to test your Python proficiency. Over 1,000 questions across all skill levels.</p>
+      
+      <div class="session-config">
+        <label for="q-count-select">Questions per session:</label>
+        <select id="q-count-select" class="quiz-select">
+          <option value="5">5 Questions</option>
+          <option value="10" selected>10 Questions</option>
+          <option value="20">20 Questions</option>
+          <option value="30">30 Questions</option>
+          <option value="50">50 Questions</option>
+          <option value="all">All Questions</option>
+        </select>
+      </div>
+    </div>
+    <div id="category-grid" class="category-grid">
+      <!-- Categories will be injected here -->
+    </div>
+  </div>
+
+  <!-- Active Quiz View -->
+  <div id="active-quiz" class="quiz-view" style="display:none">
+    <div class="quiz-header">
+      <button class="back-btn" onclick="showCategories()">← Categories</button>
+      <h2 id="current-category-title">Python Basics</h2>
+    </div>
+    <div class="quiz-card">
+      <div class="progress-bar"><div class="progress-fill" id="qprogress" style="width:0%"></div></div>
+      <div class="quiz-score" id="qscore">Question 1 of 14 • Score: 0</div>
+      <div id="quiz-body"></div>
+    </div>
+  </div>
 </div>
