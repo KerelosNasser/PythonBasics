@@ -1,9 +1,9 @@
 const students = [
-  { name: "Lilian", points: 90, badge: "Thinker", badgeColor: "#fb923c" },
+  { name: "Lilian", points: 120, badge: "Thinker", badgeColor: "#fb923c" },
   { name: "Gelan", points: 90, badge: "OTW", badgeColor: "#92015dff" },
   { name: "Jomana", points: 0, badge: "???", badgeColor: "#8a2525ff" },
   { name: "Meriam", points: 80, badge: "Master", badgeColor: "#0aa99eff" },
-  { name: "Monica", points: 70, badge: "Pro", badgeColor: "#745cfcff" },
+  { name: "Monica", points: 75, badge: "Pro", badgeColor: "#745cfcff" },
   { name: "Merolla", points: 120, badge: "AL", badgeColor: "#e164a0ff" },
   { name: "Peter", points: 0, badge: "Alchemist", badgeColor: "#4ade80" },
   { name: "George", points: 50, badge: "AI abuser", badgeColor: "#f5c842" },
