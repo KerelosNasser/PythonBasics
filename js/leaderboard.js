@@ -1,13 +1,13 @@
 const students = [
-  { name: "Lilian", points: 120, badge: "Thinker", badgeColor: "#fb923c" },
+  { name: "Lilian", points: 130, badge: "Thinker", badgeColor: "#fb923c" },
   { name: "Gelan", points: 90, badge: "OTW", badgeColor: "#92015dff" },
   { name: "Jomana", points: 0, badge: "???", badgeColor: "#8a2525ff" },
-  { name: "Meriam", points: 80, badge: "Master", badgeColor: "#0aa99eff" },
-  { name: "Monica", points: 75, badge: "Pro", badgeColor: "#745cfcff" },
+  { name: "Meriam", points: 110, badge: "Java brain", badgeColor: "#0aa99eff" },
+  { name: "Monica", points: 105, badge: "Pro", badgeColor: "#745cfcff" },
   { name: "Merolla", points: 120, badge: "AL", badgeColor: "#e164a0ff" },
-  { name: "Peter", points: 0, badge: "Alchemist", badgeColor: "#4ade80" },
-  { name: "George", points: 50, badge: "AI abuser", badgeColor: "#f5c842" },
-  { name: "Youssef", points: 30, badge: "Active", badgeColor: "#ff6b6b" },
+  { name: "Peter", points: 60, badge: "Alchemist", badgeColor: "#4ade80" },
+  { name: "George", points: 80, badge: "AI abuser", badgeColor: "#f5c842" },
+  { name: "Youssef", points: 60, badge: "Active", badgeColor: "#ff6b6b" },
   { name: "Selvana", points: -999, badge: "???", badgeColor: "#7070a0" },
 ];
 function renderLeaderboard() {
